@@ -1,85 +1,59 @@
-# Mood Edit Market Maps
+# 175 Bloor Street East Market Maps
 
-Interactive market analysis maps for the proposed **Mood Edit** location at **175 Bloor Street East, Toronto**.
+Public-facing interactive maps for a location market analysis around **175 Bloor Street East, Toronto**.
 
-This repository hosts the HTML map files used in the Mood Edit business proposal. The maps support the location analysis by showing nearby wellness demand, healthy food and beverage competition, and the broader customer movement around the Bloor-Yonge / Yorkville corridor.
+This repository hosts lightweight HTML map files used to visualize the surrounding market context, including nearby wellness destinations, healthy food and beverage operators, and broader movement patterns around the Bloor-Yonge / Yorkville corridor.
 
-## Live Map Page
+## Live Site
 
-Once GitHub Pages is enabled, the full map set will be available at:
+When GitHub Pages is enabled, the map hub will be available at:
 
 ```text
-https://YOUR-USERNAME.github.io/mood-edit-market-maps/
+https://sadafsf.github.io/bloor-east-market-maps/
 ```
 
-Replace `YOUR-USERNAME` with your GitHub username.
+## Map Index
 
-## Included Maps
+| Map | File | Description |
+|---|---|---|
+| Fitness / Gym / Pilates Density Map | `fitness_heatmap.html` | Shows the concentration of nearby fitness, gym, Pilates, and wellness-related destinations. |
+| Juice / Superfood / Healthy Food Density Map | `juice_superfood_heatmap.html` | Shows nearby juice, smoothie, superfood, and healthy food operators. |
+| Combined Market Map | `mood_edit_interactive_map.html` | Combines the proposed location, wellness destinations, healthy food operators, and surrounding movement context into one interactive view. |
 
-### 1. Fitness / Gym / Pilates Density Map
+## Direct Links
 
-**File:** `fitness_heatmap.html`
-
-This map shows the concentration of fitness, gym, Pilates, and wellness-related destinations around the proposed Mood Edit location. It supports the case that the area already has strong wellness-oriented movement and potential demand for smoothies, protein drinks, bowls, and functional beverages.
-
-Suggested proposal link text:
+After GitHub Pages is active, the maps can be opened directly here:
 
 ```text
-View Fitness / Gym / Pilates Density Map
+https://sadafsf.github.io/bloor-east-market-maps/fitness_heatmap.html
+https://sadafsf.github.io/bloor-east-market-maps/juice_superfood_heatmap.html
+https://sadafsf.github.io/bloor-east-market-maps/mood_edit_interactive_map.html
 ```
 
----
+## Intended Use
 
-### 2. Juice / Superfood / Healthy Food Density Map
+These maps are intended to support a location-level market analysis by helping reviewers understand:
 
-**File:** `juice_superfood_heatmap.html`
+- The density of nearby fitness and wellness activity
+- The presence of existing healthy food and beverage operators
+- The relationship between the site and surrounding commercial, residential, transit, and lifestyle movement
+- The potential for routine-driven customer behaviour throughout the day
 
-This map shows nearby juice, smoothie, superfood, and healthy food businesses. The goal is to show that demand for wellness-focused food and beverage already exists in the area, while Mood Edit can differentiate through stronger branding, Persian-inspired flavour, protein-forward products, and a more playful lifestyle positioning.
-
-Suggested proposal link text:
-
-```text
-View Juice / Superfood / Healthy Food Density Map
-```
-
----
-
-### 3. Combined Mood Edit Market Map
-
-**File:** `mood_edit_interactive_map.html`
-
-This map combines wellness destinations, healthy food and beverage competitors, nearby customer movement, and the proposed site. It supports the broader location thesis: Mood Edit would sit near overlapping sources of demand, including office workers, residents, students, gym-goers, shoppers, transit users, and wellness-focused customers.
-
-Suggested proposal link text:
+## Repository Structure
 
 ```text
-View Combined Mood Edit Market Map
-```
-
-## How to Use These Links in the Proposal
-
-In the Word proposal, place the interactive link underneath each static map image or caption.
-
-Example:
-
-```text
-Interactive version: View Fitness / Gym / Pilates Density Map
-```
-
-Highlight only the clickable text, press **Command + K**, and paste the GitHub Pages link.
-
-Example final links:
-
-```text
-https://YOUR-USERNAME.github.io/mood-edit-market-maps/fitness_heatmap.html
-https://YOUR-USERNAME.github.io/mood-edit-market-maps/juice_superfood_heatmap.html
-https://YOUR-USERNAME.github.io/mood-edit-market-maps/mood_edit_interactive_map.html
+.
+├── README.md
+├── index.html
+├── fitness_heatmap.html
+├── juice_superfood_heatmap.html
+└── mood_edit_interactive_map.html
 ```
 
 ## Notes
 
-- These files are intended to support the business proposal and location analysis for Mood Edit.
-- The HTML files should remain in the root folder of the repository unless the links are updated.
-- File names must match exactly for the links to work.
-- Do not use local file paths such as `file:///Users/...` in the proposal, because those links only work on the original computer.
-- Use GitHub Pages links so reviewers can open the maps from any device.
+- These files are static HTML files and can be viewed through GitHub Pages.
+- File names should remain unchanged unless the related links are also updated.
+- Public links should use the GitHub Pages URL, not local file paths.
+- Local paths such as `file:///Users/...` should not be used in shared documents because they only work on the original computer.
+
