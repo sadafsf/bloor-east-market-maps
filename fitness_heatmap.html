@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_78072872a84abeb34c9b2c0d0938b0e4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+    <div style="
+    position: fixed;
+    top: 20px;
+    left: 50px;
+    z-index:9999;
+    background-color:white;
+    border:2px solid #555;
+    border-radius:12px;
+    padding: 12px;
+    font-family: Arial;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.25);
+    ">
+    <b>Fitness / Gym / Pilates Density Map</b><br>
+    <small>Base location: 175 Bloor St E, Toronto</small>
+    </div>
+    
+    
+            <div class="folium-map" id="map_78072872a84abeb34c9b2c0d0938b0e4" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_78072872a84abeb34c9b2c0d0938b0e4 = L.map(
+                "map_78072872a84abeb34c9b2c0d0938b0e4",
+                {
+                    center: [43.670896, -79.3824632],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c3a84abc3281a57289e4ad99e4da1aa3 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_c3a84abc3281a57289e4ad99e4da1aa3.addTo(map_78072872a84abeb34c9b2c0d0938b0e4);
+        
+    
+            var heat_map_95473d0840876f72b494e3037fdef40d = L.heatLayer(
+                [[43.6714812, -79.384736], [43.66785, -79.3855], [43.6697578, -79.3900887], [43.6632183, -79.3850984], [43.6675365, -79.3851999], [43.6636606, -79.3837824], [43.6655829, -79.4111876], [43.6688758, -79.3826531], [43.654212, -79.379899], [43.6698249, -79.3861067], [43.669565, -79.388565], [43.67054, -79.39231], [43.670021, -79.430058], [43.6746538, -79.3890069], [43.65128, -79.36476], [43.6676916, -79.3745264], [43.6581577, -79.3500979], [43.6511, -79.378448], [43.66873, -79.386032], [43.6785182, -79.3899129], [43.6670383, -79.3851276], [43.6705703, -79.3939249], [43.6721692, -79.3907856], [43.6707548, -79.3893561], [43.6712292, -79.393526], [43.6645037, -79.3854482], [43.67208, -79.39136], [43.661, -79.35997], [43.6788886, -79.3899721], [43.6707855, -79.3856867], [43.661997, -79.383159], [43.6674369, -79.3857767], [43.6660946, -79.3843289], [43.65068, -79.390054], [43.6833585, -79.3924674], [43.6551, -79.35588], [43.65914, -79.35345], [43.6716384, -79.3831727], [43.646032, -79.3841483], [43.6367424, -79.4002665], [43.707471, -79.394278], [43.64855, -79.48613], [43.7542086, -79.3512712], [43.6386783, -79.4944984], [43.6102147, -79.580018], [43.5664831, -79.5708246], [43.5372139, -79.6878657], [43.6789974, -79.720981], [43.8471045, -79.4597172], [43.9003293, -79.3944606], [43.8502822, -79.5322479], [43.6746279, -79.3883], [43.6640791, -79.4153652], [43.6452451, -79.3903639], [43.6478378, -79.3928943], [43.6654161, -79.3870744], [43.66479, -79.36846], [43.70423, -79.41126], [43.6636031, -79.3842132], [43.67417, -79.39817]],
+                {
+  "minOpacity": 0.25,
+  "maxZoom": 18,
+  "radius": 25,
+  "blur": 18,
+}
+            );
+        
+    
+            heat_map_95473d0840876f72b494e3037fdef40d.addTo(map_78072872a84abeb34c9b2c0d0938b0e4);
+        
+    
+            var marker_5f569674d2dd962d500d9b41d9de474c = L.marker(
+                [43.670896, -79.3824632],
+                {
+}
+            ).addTo(map_78072872a84abeb34c9b2c0d0938b0e4);
+        
+    
+            var icon_1a6909639d76e7c0224ce60f8a4d9b75 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_15ec6a58e8bd0a0e6d4bb2b618b08152 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa03388031b75cd6cba7bcd014b073a4 = $(`<div id="html_aa03388031b75cd6cba7bcd014b073a4" style="width: 100.0%; height: 100.0%;">Proposed Location - 175 Bloor St E</div>`)[0];
+                popup_15ec6a58e8bd0a0e6d4bb2b618b08152.setContent(html_aa03388031b75cd6cba7bcd014b073a4);
+            
+        
+
+        marker_5f569674d2dd962d500d9b41d9de474c.bindPopup(popup_15ec6a58e8bd0a0e6d4bb2b618b08152)
+        ;
+
+        
+    
+    
+            marker_5f569674d2dd962d500d9b41d9de474c.bindTooltip(
+                `<div>
+                     Proposed Location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5f569674d2dd962d500d9b41d9de474c.setIcon(icon_1a6909639d76e7c0224ce60f8a4d9b75);
+            
+    
+            var circle_154cffc352f9e2cc811e9e034558a88b = L.circle(
+                [43.670896, -79.3824632],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 2}
+            ).addTo(map_78072872a84abeb34c9b2c0d0938b0e4);
+        
+    
+        var popup_e25b836fd1db0ee6d7913d27cedd85e3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1156e42cc70c7e93fff6ee751da2cec6 = $(`<div id="html_1156e42cc70c7e93fff6ee751da2cec6" style="width: 100.0%; height: 100.0%;">500m radius from 175 Bloor St E</div>`)[0];
+                popup_e25b836fd1db0ee6d7913d27cedd85e3.setContent(html_1156e42cc70c7e93fff6ee751da2cec6);
+            
+        
+
+        circle_154cffc352f9e2cc811e9e034558a88b.bindPopup(popup_e25b836fd1db0ee6d7913d27cedd85e3)
+        ;
+
+        
+    
+    
+            var circle_95d1d4edd7df47c3a6803616297b730c = L.circle(
+                [43.670896, -79.3824632],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 1.8}
+            ).addTo(map_78072872a84abeb34c9b2c0d0938b0e4);
+        
+    
+        var popup_6ae637b4b4c722b9792fa15a97392b85 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f45b4fe3d875f1db869c22eba1df813e = $(`<div id="html_f45b4fe3d875f1db869c22eba1df813e" style="width: 100.0%; height: 100.0%;">1,000m radius from 175 Bloor St E</div>`)[0];
+                popup_6ae637b4b4c722b9792fa15a97392b85.setContent(html_f45b4fe3d875f1db869c22eba1df813e);
+            
+        
+
+        circle_95d1d4edd7df47c3a6803616297b730c.bindPopup(popup_6ae637b4b4c722b9792fa15a97392b85)
+        ;
+
+        
+    
+    
+            var circle_e699566eb402f766f838dbe68da30f5a = L.circle(
+                [43.670896, -79.3824632],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 1.5}
+            ).addTo(map_78072872a84abeb34c9b2c0d0938b0e4);
+        
+    
+        var popup_6e51e0b01c6fc8c4d1c7b291a74dd6cd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_74fca805942ead449fbb4b5ff9ebcb69 = $(`<div id="html_74fca805942ead449fbb4b5ff9ebcb69" style="width: 100.0%; height: 100.0%;">2,000m radius from 175 Bloor St E</div>`)[0];
+                popup_6e51e0b01c6fc8c4d1c7b291a74dd6cd.setContent(html_74fca805942ead449fbb4b5ff9ebcb69);
+            
+        
+
+        circle_e699566eb402f766f838dbe68da30f5a.bindPopup(popup_6e51e0b01c6fc8c4d1c7b291a74dd6cd)
+        ;
+
+        
+    
+    
+            var circle_43dc40a5c1686cda358bef6101c6f780 = L.circle(
+                [43.670896, -79.3824632],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000, "stroke": true, "weight": 1.2}
+            ).addTo(map_78072872a84abeb34c9b2c0d0938b0e4);
+        
+    
+        var popup_2f0da81822279a869a45d49293c18c58 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7fea0835d23520a49acd55c3d0852d79 = $(`<div id="html_7fea0835d23520a49acd55c3d0852d79" style="width: 100.0%; height: 100.0%;">3,000m radius from 175 Bloor St E</div>`)[0];
+                popup_2f0da81822279a869a45d49293c18c58.setContent(html_7fea0835d23520a49acd55c3d0852d79);
+            
+        
+
+        circle_43dc40a5c1686cda358bef6101c6f780.bindPopup(popup_2f0da81822279a869a45d49293c18c58)
+        ;
+
+        
+    
+    
+            var circle_154be40c8d76a8be5c9771058715b5f4 = L.circle(
+                [43.670896, -79.3824632],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5000, "stroke": true, "weight": 1.0}
+            ).addTo(map_78072872a84abeb34c9b2c0d0938b0e4);
+        
+    
+        var popup_f387f41dc1d5e16691cb56a549dd2549 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_72b59d971e533f8adb83055f22d55401 = $(`<div id="html_72b59d971e533f8adb83055f22d55401" style="width: 100.0%; height: 100.0%;">5,000m radius from 175 Bloor St E</div>`)[0];
+                popup_f387f41dc1d5e16691cb56a549dd2549.setContent(html_72b59d971e533f8adb83055f22d55401);
+            
+        
+
+        circle_154be40c8d76a8be5c9771058715b5f4.bindPopup(popup_f387f41dc1d5e16691cb56a549dd2549)
+        ;
+
+        
+    
+</script>
+</html>

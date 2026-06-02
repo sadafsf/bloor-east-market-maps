@@ -1,0 +1,4321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4e7a56d69af5055e556e21c4e52da4d5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    width: 310px;
+    z-index:9999;
+    font-size:14px;
+    background-color:white;
+    border:2px solid #555;
+    border-radius:12px;
+    padding: 14px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.25);
+    font-family: Arial;
+    ">
+    <b>Mood Edit Market Map</b><br>
+    <small>Base location: 175 Bloor St E, Toronto</small><br><br>
+    <span style="color:red;">●</span> Proposed Location<br>
+    <span style="color:green;">●</span> Juice / Superfood / Healthy Food<br>
+    <span style="color:blue;">●</span> Gyms / Fitness / Pilates<br>
+    <span style="color:black;">◌</span> 500m / 1km / 2km / 3km / 5km radii<br><br>
+    <small>Use layers to turn categories on/off.</small>
+    </div>
+    
+    
+            <div class="folium-map" id="map_4e7a56d69af5055e556e21c4e52da4d5" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4e7a56d69af5055e556e21c4e52da4d5 = L.map(
+                "map_4e7a56d69af5055e556e21c4e52da4d5",
+                {
+                    center: [43.670896, -79.3824632],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 14,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_98e689f1a473b6940b70343ac9cd630c = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_98e689f1a473b6940b70343ac9cd630c.addTo(map_4e7a56d69af5055e556e21c4e52da4d5);
+        
+    
+            var circle_194d57b02797e2df7ab2ca9dde20bd2f = L.circle(
+                [43.670896, -79.3824632],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 2}
+            ).addTo(map_4e7a56d69af5055e556e21c4e52da4d5);
+        
+    
+        var popup_588b4ffcee367dee27cb0ce8fcfe9b04 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_48573110870781b3ddfb3fe33abcdebc = $(`<div id="html_48573110870781b3ddfb3fe33abcdebc" style="width: 100.0%; height: 100.0%;">500m radius from 175 Bloor St E</div>`)[0];
+                popup_588b4ffcee367dee27cb0ce8fcfe9b04.setContent(html_48573110870781b3ddfb3fe33abcdebc);
+            
+        
+
+        circle_194d57b02797e2df7ab2ca9dde20bd2f.bindPopup(popup_588b4ffcee367dee27cb0ce8fcfe9b04)
+        ;
+
+        
+    
+    
+            var circle_f81fbc814b118a1ff2473a34dbfa51cc = L.circle(
+                [43.670896, -79.3824632],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 1.8}
+            ).addTo(map_4e7a56d69af5055e556e21c4e52da4d5);
+        
+    
+        var popup_92a2d85d4551ac61ae8027003e0fc179 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dc40135de4246fdb0361898fcbb6ddea = $(`<div id="html_dc40135de4246fdb0361898fcbb6ddea" style="width: 100.0%; height: 100.0%;">1,000m radius from 175 Bloor St E</div>`)[0];
+                popup_92a2d85d4551ac61ae8027003e0fc179.setContent(html_dc40135de4246fdb0361898fcbb6ddea);
+            
+        
+
+        circle_f81fbc814b118a1ff2473a34dbfa51cc.bindPopup(popup_92a2d85d4551ac61ae8027003e0fc179)
+        ;
+
+        
+    
+    
+            var circle_48b82afa5076e8c1069240a16ec0090d = L.circle(
+                [43.670896, -79.3824632],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 1.5}
+            ).addTo(map_4e7a56d69af5055e556e21c4e52da4d5);
+        
+    
+        var popup_ce4a39c4c1f1e0c0820c486966d8dac4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f29c8cb108e2c3009efc7e437be9dd9e = $(`<div id="html_f29c8cb108e2c3009efc7e437be9dd9e" style="width: 100.0%; height: 100.0%;">2,000m radius from 175 Bloor St E</div>`)[0];
+                popup_ce4a39c4c1f1e0c0820c486966d8dac4.setContent(html_f29c8cb108e2c3009efc7e437be9dd9e);
+            
+        
+
+        circle_48b82afa5076e8c1069240a16ec0090d.bindPopup(popup_ce4a39c4c1f1e0c0820c486966d8dac4)
+        ;
+
+        
+    
+    
+            var circle_7b89010c40ffa2c81f821f34dcd1a220 = L.circle(
+                [43.670896, -79.3824632],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000, "stroke": true, "weight": 1.2}
+            ).addTo(map_4e7a56d69af5055e556e21c4e52da4d5);
+        
+    
+        var popup_29c538e334129124aeb80361d531e933 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2ad1fcc8b868839cd00cffbb61d36eff = $(`<div id="html_2ad1fcc8b868839cd00cffbb61d36eff" style="width: 100.0%; height: 100.0%;">3,000m radius from 175 Bloor St E</div>`)[0];
+                popup_29c538e334129124aeb80361d531e933.setContent(html_2ad1fcc8b868839cd00cffbb61d36eff);
+            
+        
+
+        circle_7b89010c40ffa2c81f821f34dcd1a220.bindPopup(popup_29c538e334129124aeb80361d531e933)
+        ;
+
+        
+    
+    
+            var circle_4d3b4e77d6799682974b9099a7c27374 = L.circle(
+                [43.670896, -79.3824632],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5000, "stroke": true, "weight": 1.0}
+            ).addTo(map_4e7a56d69af5055e556e21c4e52da4d5);
+        
+    
+        var popup_3717afce62dcb44c96a345662ef1342e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_54f02321d66b3596f347f2104f67e4b8 = $(`<div id="html_54f02321d66b3596f347f2104f67e4b8" style="width: 100.0%; height: 100.0%;">5,000m radius from 175 Bloor St E</div>`)[0];
+                popup_3717afce62dcb44c96a345662ef1342e.setContent(html_54f02321d66b3596f347f2104f67e4b8);
+            
+        
+
+        circle_4d3b4e77d6799682974b9099a7c27374.bindPopup(popup_3717afce62dcb44c96a345662ef1342e)
+        ;
+
+        
+    
+    
+            var feature_group_266602123c27b1392172664cd0dee14c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_1ca9ec2463809d3ce48729a32b3faced = L.marker(
+                [43.670896, -79.3824632],
+                {
+}
+            ).addTo(feature_group_266602123c27b1392172664cd0dee14c);
+        
+    
+            var icon_bc02b100d30b1ee97e8e1213962b40da = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_34c13f806a4854ef1f1f0ce7b6d43321 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_c1b2abb46e73ba93e63b005b22763790 = $(`<div id="html_c1b2abb46e73ba93e63b005b22763790" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Proposed Location - 175 Bloor St E</b><br>         <b>Category:</b> Target<br>         <b>Subcategory:</b> Proposed Location<br>         <b>Address:</b> 175 Bloor St E, Toronto, ON, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0 km     </div>     </div>`)[0];
+                popup_34c13f806a4854ef1f1f0ce7b6d43321.setContent(html_c1b2abb46e73ba93e63b005b22763790);
+            
+        
+
+        marker_1ca9ec2463809d3ce48729a32b3faced.bindPopup(popup_34c13f806a4854ef1f1f0ce7b6d43321)
+        ;
+
+        
+    
+    
+            marker_1ca9ec2463809d3ce48729a32b3faced.bindTooltip(
+                `<div>
+                     Proposed Location - 175 Bloor St E
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1ca9ec2463809d3ce48729a32b3faced.setIcon(icon_bc02b100d30b1ee97e8e1213962b40da);
+            
+    
+            feature_group_266602123c27b1392172664cd0dee14c.addTo(map_4e7a56d69af5055e556e21c4e52da4d5);
+        
+    
+            var feature_group_f205d1a01d3158b11f486cf8dc23cdb3 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_9ba149297322800e5ed5c28e646bfe30 = L.marker(
+                [43.66676, -79.38557],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_48c690993d8dc0807620c3164cea881d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fb7b11604f13f43aecdd7344e057defb = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_d6f6dfa09cc71d2444a666e4e882cc45 = $(`<div id="html_d6f6dfa09cc71d2444a666e4e882cc45" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>CoCo Fresh Tea & Juice - Yonge 648A</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Juice / Bubble Tea<br>         <b>Address:</b> 648A Yonge St, Toronto, ON M4Y 2A6, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.52 km     </div>     </div>`)[0];
+                popup_fb7b11604f13f43aecdd7344e057defb.setContent(html_d6f6dfa09cc71d2444a666e4e882cc45);
+            
+        
+
+        marker_9ba149297322800e5ed5c28e646bfe30.bindPopup(popup_fb7b11604f13f43aecdd7344e057defb)
+        ;
+
+        
+    
+    
+            marker_9ba149297322800e5ed5c28e646bfe30.bindTooltip(
+                `<div>
+                     CoCo Fresh Tea & Juice - Yonge 648A
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9ba149297322800e5ed5c28e646bfe30.setIcon(icon_48c690993d8dc0807620c3164cea881d);
+            
+    
+            var marker_b7127c4eee22b53d04acc89a3d7013c6 = L.marker(
+                [43.6538976, -79.3809161],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_ba0abe0b74678b31719c06eb3436e8e0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_011a3f9274f928d00ea70bd2a670ea86 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_155fd2e8febac50afd5429510946bfb3 = $(`<div id="html_155fd2e8febac50afd5429510946bfb3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Freshly Squeezed - Eaton Centre</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Juice / Smoothie<br>         <b>Address:</b> Toronto Eaton Centre, 220 Yonge St H010, Toronto, ON M5B 2H1, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 1.89 km     </div>     </div>`)[0];
+                popup_011a3f9274f928d00ea70bd2a670ea86.setContent(html_155fd2e8febac50afd5429510946bfb3);
+            
+        
+
+        marker_b7127c4eee22b53d04acc89a3d7013c6.bindPopup(popup_011a3f9274f928d00ea70bd2a670ea86)
+        ;
+
+        
+    
+    
+            marker_b7127c4eee22b53d04acc89a3d7013c6.bindTooltip(
+                `<div>
+                     Freshly Squeezed - Eaton Centre
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b7127c4eee22b53d04acc89a3d7013c6.setIcon(icon_ba0abe0b74678b31719c06eb3436e8e0);
+            
+    
+            var marker_e8c0e2891059fe1ed277dc4ee05a90e5 = L.marker(
+                [43.6538976, -79.3809161],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_da3da3e87d3560324f52d108f0fc99c0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e2b0a5cad10139273febbb894b425f76 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_b170bb59419b5569611605d0ab48b434 = $(`<div id="html_b170bb59419b5569611605d0ab48b434" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Jugo Juice - Eaton Centre</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Juice / Smoothie<br>         <b>Address:</b> 220 Yonge St Unit N116, Toronto, ON M5B 2H1, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 1.89 km     </div>     </div>`)[0];
+                popup_e2b0a5cad10139273febbb894b425f76.setContent(html_b170bb59419b5569611605d0ab48b434);
+            
+        
+
+        marker_e8c0e2891059fe1ed277dc4ee05a90e5.bindPopup(popup_e2b0a5cad10139273febbb894b425f76)
+        ;
+
+        
+    
+    
+            marker_e8c0e2891059fe1ed277dc4ee05a90e5.bindTooltip(
+                `<div>
+                     Jugo Juice - Eaton Centre
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e8c0e2891059fe1ed277dc4ee05a90e5.setIcon(icon_da3da3e87d3560324f52d108f0fc99c0);
+            
+    
+            var marker_f212d66a6bf6dfbbb9d538680b25803e = L.marker(
+                [43.654752, -79.4019695],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_4d07fa20f354ab710118baa7f730c4b9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_113350fb9503eb5e8471d7eb0770b1c0 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_328b118fea132da577cf6e0eb6dae0eb = $(`<div id="html_328b118fea132da577cf6e0eb6dae0eb" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>TON OF JUICE PLUS</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Juice / Smoothie<br>         <b>Address:</b> 241 Augusta Ave, Toronto, ON M5T 2L8, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 2.39 km     </div>     </div>`)[0];
+                popup_113350fb9503eb5e8471d7eb0770b1c0.setContent(html_328b118fea132da577cf6e0eb6dae0eb);
+            
+        
+
+        marker_f212d66a6bf6dfbbb9d538680b25803e.bindPopup(popup_113350fb9503eb5e8471d7eb0770b1c0)
+        ;
+
+        
+    
+    
+            marker_f212d66a6bf6dfbbb9d538680b25803e.bindTooltip(
+                `<div>
+                     TON OF JUICE PLUS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f212d66a6bf6dfbbb9d538680b25803e.setIcon(icon_4d07fa20f354ab710118baa7f730c4b9);
+            
+    
+            var marker_639d20af906aac0d7fe08592ca46ffa3 = L.marker(
+                [43.665176, -79.3805944],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_841aaee8095991089a9b5f76d8dfa62a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_24f901216373c7113bfeb8a007478cce = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_fcba22955ebaef977c05a3903ef649e4 = $(`<div id="html_fcba22955ebaef977c05a3903ef649e4" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Juice Box</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Juice / Smoothie<br>         <b>Address:</b> 491 Church St, Toronto, ON M4Y 2C6, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.65 km     </div>     </div>`)[0];
+                popup_24f901216373c7113bfeb8a007478cce.setContent(html_fcba22955ebaef977c05a3903ef649e4);
+            
+        
+
+        marker_639d20af906aac0d7fe08592ca46ffa3.bindPopup(popup_24f901216373c7113bfeb8a007478cce)
+        ;
+
+        
+    
+    
+            marker_639d20af906aac0d7fe08592ca46ffa3.bindTooltip(
+                `<div>
+                     Juice Box
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_639d20af906aac0d7fe08592ca46ffa3.setIcon(icon_841aaee8095991089a9b5f76d8dfa62a);
+            
+    
+            var marker_ebdc413354f0ee469afe2419624ed068 = L.marker(
+                [43.6536235, -79.3686525],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_4a9d5379d1c2e262c2b87eb58ad55f57 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d58a4274d5cc4195d9f49f93fec861cf = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_4767d34ef535d751c123c3ba0b833c81 = $(`<div id="html_4767d34ef535d751c123c3ba0b833c81" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Jugo Juice - Richmond East</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Juice / Smoothie<br>         <b>Address:</b> 320 Richmond St E #104, Toronto, ON M5A 2P9, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 2.22 km     </div>     </div>`)[0];
+                popup_d58a4274d5cc4195d9f49f93fec861cf.setContent(html_4767d34ef535d751c123c3ba0b833c81);
+            
+        
+
+        marker_ebdc413354f0ee469afe2419624ed068.bindPopup(popup_d58a4274d5cc4195d9f49f93fec861cf)
+        ;
+
+        
+    
+    
+            marker_ebdc413354f0ee469afe2419624ed068.bindTooltip(
+                `<div>
+                     Jugo Juice - Richmond East
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ebdc413354f0ee469afe2419624ed068.setIcon(icon_4a9d5379d1c2e262c2b87eb58ad55f57);
+            
+    
+            var marker_1127f70d98ec67781dbabd82bdbe2150 = L.marker(
+                [43.6587337, -79.382143],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_59f5a101ab8299bc33be6f51a35426c3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fae90992d7f5c3f459ea7f818aad5daf = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_15df61e6750eec80276e83824310e57b = $(`<div id="html_15df61e6750eec80276e83824310e57b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>CoCo Fresh Tea & Juice - Yonge 372</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Juice / Bubble Tea<br>         <b>Address:</b> 372 Yonge St, Toronto, ON M5B 1S6, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 1.35 km     </div>     </div>`)[0];
+                popup_fae90992d7f5c3f459ea7f818aad5daf.setContent(html_15df61e6750eec80276e83824310e57b);
+            
+        
+
+        marker_1127f70d98ec67781dbabd82bdbe2150.bindPopup(popup_fae90992d7f5c3f459ea7f818aad5daf)
+        ;
+
+        
+    
+    
+            marker_1127f70d98ec67781dbabd82bdbe2150.bindTooltip(
+                `<div>
+                     CoCo Fresh Tea & Juice - Yonge 372
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1127f70d98ec67781dbabd82bdbe2150.setIcon(icon_59f5a101ab8299bc33be6f51a35426c3);
+            
+    
+            var marker_cb5d001032552dbf4e731c68a7d94243 = L.marker(
+                [43.6554314, -79.4022212],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_91f06aea2944c44e9259524b2ad294c5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7fbdece2ce2165eb51e22d0152c2309c = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_cf741bb1382ba818c65b734cd74ecaee = $(`<div id="html_cf741bb1382ba818c65b734cd74ecaee" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>The Organic Press</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Juice / Wellness<br>         <b>Address:</b> 257 Augusta Ave, Toronto, ON M5T 2M1, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 2.34 km     </div>     </div>`)[0];
+                popup_7fbdece2ce2165eb51e22d0152c2309c.setContent(html_cf741bb1382ba818c65b734cd74ecaee);
+            
+        
+
+        marker_cb5d001032552dbf4e731c68a7d94243.bindPopup(popup_7fbdece2ce2165eb51e22d0152c2309c)
+        ;
+
+        
+    
+    
+            marker_cb5d001032552dbf4e731c68a7d94243.bindTooltip(
+                `<div>
+                     The Organic Press
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cb5d001032552dbf4e731c68a7d94243.setIcon(icon_91f06aea2944c44e9259524b2ad294c5);
+            
+    
+            var marker_e08737c5c49097e4487e35179b4a1fb8 = L.marker(
+                [43.6675438, -79.3852359],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_c941dfb49bf211fb74f0dcf5867c3c17 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a19716f23b45eedf0c636527e19c72dd = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_8de8a90bb8746099bd42d6e5841cb584 = $(`<div id="html_8de8a90bb8746099bd42d6e5841cb584" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>The Nutrition Bar</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Protein / Smoothie<br>         <b>Address:</b> 5 Isabella St, Toronto, ON M4Y 1M7, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.43 km     </div>     </div>`)[0];
+                popup_a19716f23b45eedf0c636527e19c72dd.setContent(html_8de8a90bb8746099bd42d6e5841cb584);
+            
+        
+
+        marker_e08737c5c49097e4487e35179b4a1fb8.bindPopup(popup_a19716f23b45eedf0c636527e19c72dd)
+        ;
+
+        
+    
+    
+            marker_e08737c5c49097e4487e35179b4a1fb8.bindTooltip(
+                `<div>
+                     The Nutrition Bar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e08737c5c49097e4487e35179b4a1fb8.setIcon(icon_c941dfb49bf211fb74f0dcf5867c3c17);
+            
+    
+            var marker_2047b648033d479021812d0b79f0ba78 = L.marker(
+                [43.6707548, -79.3893561],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_5d6f3bbf5631a5d6c0573ee7a5dfb302 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8e87ee6838b4218362bc5c659f7c2f5e = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_f4e320cd18633a5cd5bf284dcfb6114e = $(`<div id="html_f4e320cd18633a5cd5bf284dcfb6114e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>The Hut Smoothie and Juice Bar</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Juice / Smoothie<br>         <b>Address:</b> 62 Cumberland St, Toronto, ON M4W 1J5, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.56 km     </div>     </div>`)[0];
+                popup_8e87ee6838b4218362bc5c659f7c2f5e.setContent(html_f4e320cd18633a5cd5bf284dcfb6114e);
+            
+        
+
+        marker_2047b648033d479021812d0b79f0ba78.bindPopup(popup_8e87ee6838b4218362bc5c659f7c2f5e)
+        ;
+
+        
+    
+    
+            marker_2047b648033d479021812d0b79f0ba78.bindTooltip(
+                `<div>
+                     The Hut Smoothie and Juice Bar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2047b648033d479021812d0b79f0ba78.setIcon(icon_5d6f3bbf5631a5d6c0573ee7a5dfb302);
+            
+    
+            var marker_c1d392155c3eac3b9ddc0fa713f938eb = L.marker(
+                [43.6493098, -79.4249407],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_fb066194816363cfc590e71de4640bf8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f427a6292dcc4afd8d93b1338220bd1e = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_462046977cd7e1a8ec06c9883815ac73 = $(`<div id="html_462046977cd7e1a8ec06c9883815ac73" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Tochal Downtown</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Persian / Juice / Dessert<br>         <b>Address:</b> 1269 Dundas St W, Toronto, ON M6J 3S2, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 4.18 km     </div>     </div>`)[0];
+                popup_f427a6292dcc4afd8d93b1338220bd1e.setContent(html_462046977cd7e1a8ec06c9883815ac73);
+            
+        
+
+        marker_c1d392155c3eac3b9ddc0fa713f938eb.bindPopup(popup_f427a6292dcc4afd8d93b1338220bd1e)
+        ;
+
+        
+    
+    
+            marker_c1d392155c3eac3b9ddc0fa713f938eb.bindTooltip(
+                `<div>
+                     Tochal Downtown
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c1d392155c3eac3b9ddc0fa713f938eb.setIcon(icon_fb066194816363cfc590e71de4640bf8);
+            
+    
+            var marker_68b0e6b23b9785bb9d3ca7aaf00865f2 = L.marker(
+                [43.7068001, -79.3759671],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_9f96c289cc47a43709c7749dade9d864 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7397fe77dd024f0724e38a5f890f9b52 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_4da0b83d2493219d62ffb2c205504841 = $(`<div id="html_4da0b83d2493219d62ffb2c205504841" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Drink Juice Co.</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Juice / Wellness<br>         <b>Address:</b> 463 Manor Rd E, Toronto, ON M4S 1T3, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 4.02 km     </div>     </div>`)[0];
+                popup_7397fe77dd024f0724e38a5f890f9b52.setContent(html_4da0b83d2493219d62ffb2c205504841);
+            
+        
+
+        marker_68b0e6b23b9785bb9d3ca7aaf00865f2.bindPopup(popup_7397fe77dd024f0724e38a5f890f9b52)
+        ;
+
+        
+    
+    
+            marker_68b0e6b23b9785bb9d3ca7aaf00865f2.bindTooltip(
+                `<div>
+                     Drink Juice Co.
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_68b0e6b23b9785bb9d3ca7aaf00865f2.setIcon(icon_9f96c289cc47a43709c7749dade9d864);
+            
+    
+            var marker_45fd4ba181a8ce800c72147e0d6486bd = L.marker(
+                [43.6661878, -79.4068386],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_95cfe1f08323accad866b0a150aaf503 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_361dc8bebfeae6840987f69acceca6a4 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_c875bc93cfff0a2cf18a3788c46593c7 = $(`<div id="html_c875bc93cfff0a2cf18a3788c46593c7" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Fresh Kitchen + Juice Bar - Bloor</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Healthy Restaurant / Juice<br>         <b>Address:</b> 386 Bloor St W, Toronto, ON M5S 1X4, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 2.03 km     </div>     </div>`)[0];
+                popup_361dc8bebfeae6840987f69acceca6a4.setContent(html_c875bc93cfff0a2cf18a3788c46593c7);
+            
+        
+
+        marker_45fd4ba181a8ce800c72147e0d6486bd.bindPopup(popup_361dc8bebfeae6840987f69acceca6a4)
+        ;
+
+        
+    
+    
+            marker_45fd4ba181a8ce800c72147e0d6486bd.bindTooltip(
+                `<div>
+                     Fresh Kitchen + Juice Bar - Bloor
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_45fd4ba181a8ce800c72147e0d6486bd.setIcon(icon_95cfe1f08323accad866b0a150aaf503);
+            
+    
+            var marker_1277219f3ceeab50b1240e1495054c55 = L.marker(
+                [43.6474482, -79.4492151],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_63ae073feaefeaf30d32eafc98c2f131 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2241b255c29e5c179f8d277888cf3134 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_a4fe92db88bd74f3d5351be434e7be1b = $(`<div id="html_a4fe92db88bd74f3d5351be434e7be1b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Super Bowls - Superfood Bar</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Bowls / Superfood<br>         <b>Address:</b> 279 Roncesvalles Ave, Toronto, ON M6R 2M3, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 5.98 km     </div>     </div>`)[0];
+                popup_2241b255c29e5c179f8d277888cf3134.setContent(html_a4fe92db88bd74f3d5351be434e7be1b);
+            
+        
+
+        marker_1277219f3ceeab50b1240e1495054c55.bindPopup(popup_2241b255c29e5c179f8d277888cf3134)
+        ;
+
+        
+    
+    
+            marker_1277219f3ceeab50b1240e1495054c55.bindTooltip(
+                `<div>
+                     Super Bowls - Superfood Bar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1277219f3ceeab50b1240e1495054c55.setIcon(icon_63ae073feaefeaf30d32eafc98c2f131);
+            
+    
+            var marker_6de444d379246468efd8eed2b3eb9299 = L.marker(
+                [43.6571083, -79.3814184],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_7e73c34bbdd965ad41f1f98687575849 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f28687faac10d33771f16db410771493 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_8bfd549e8807403769d8fb634f3f709a = $(`<div id="html_8bfd549e8807403769d8fb634f3f709a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Healthy Planet - Yonge & Dundas</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Health Food / Wellness<br>         <b>Address:</b> 322 Yonge St, Toronto, ON M5B 1S1, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 1.53 km     </div>     </div>`)[0];
+                popup_f28687faac10d33771f16db410771493.setContent(html_8bfd549e8807403769d8fb634f3f709a);
+            
+        
+
+        marker_6de444d379246468efd8eed2b3eb9299.bindPopup(popup_f28687faac10d33771f16db410771493)
+        ;
+
+        
+    
+    
+            marker_6de444d379246468efd8eed2b3eb9299.bindTooltip(
+                `<div>
+                     Healthy Planet - Yonge & Dundas
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6de444d379246468efd8eed2b3eb9299.setIcon(icon_7e73c34bbdd965ad41f1f98687575849);
+            
+    
+            var marker_82132d4264cfc6e84fd32c4ab6ac5e3f = L.marker(
+                [43.6695843, -79.3917819],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_910a75f06fdc09f0b4a4958c142761fa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8249adde2a55a8d508e242cf9c3b6d54 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_f1799f65dd684b21eeaaabcf77f4ffba = $(`<div id="html_f1799f65dd684b21eeaaabcf77f4ffba" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>nutbar - Bloor</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Wellness Cafe<br>         <b>Address:</b> 102 Bloor St W Unit 4, Toronto, ON M5S 1M8, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.77 km     </div>     </div>`)[0];
+                popup_8249adde2a55a8d508e242cf9c3b6d54.setContent(html_f1799f65dd684b21eeaaabcf77f4ffba);
+            
+        
+
+        marker_82132d4264cfc6e84fd32c4ab6ac5e3f.bindPopup(popup_8249adde2a55a8d508e242cf9c3b6d54)
+        ;
+
+        
+    
+    
+            marker_82132d4264cfc6e84fd32c4ab6ac5e3f.bindTooltip(
+                `<div>
+                     nutbar - Bloor
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_82132d4264cfc6e84fd32c4ab6ac5e3f.setIcon(icon_910a75f06fdc09f0b4a4958c142761fa);
+            
+    
+            var marker_4357a62ccefbaf1c5735f39255992884 = L.marker(
+                [43.667891, -79.3889832],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_cc1e9db21476e15a3e90498c39247d07 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a2cb9ca913b0726c0a66c86689eb197c = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_03b6b6abd51e39d4d807354a5f117c45 = $(`<div id="html_03b6b6abd51e39d4d807354a5f117c45" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>imPerfect Fresh Eats - Bay</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Healthy Fast Casual<br>         <b>Address:</b> 1108 Bay St. Unit A, Toronto, ON M5S 2Y1, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.62 km     </div>     </div>`)[0];
+                popup_a2cb9ca913b0726c0a66c86689eb197c.setContent(html_03b6b6abd51e39d4d807354a5f117c45);
+            
+        
+
+        marker_4357a62ccefbaf1c5735f39255992884.bindPopup(popup_a2cb9ca913b0726c0a66c86689eb197c)
+        ;
+
+        
+    
+    
+            marker_4357a62ccefbaf1c5735f39255992884.bindTooltip(
+                `<div>
+                     imPerfect Fresh Eats - Bay
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4357a62ccefbaf1c5735f39255992884.setIcon(icon_cc1e9db21476e15a3e90498c39247d07);
+            
+    
+            var marker_4573dd05d3a13d940d47169f3674a11f = L.marker(
+                [43.6436642, -79.3994127],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_9bcad17d3659546439bb799064274797 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_81155c90ee5e375ba6bc187c8b295dfc = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_6cfde3c572220d8264bf2982b724f59f = $(`<div id="html_6cfde3c572220d8264bf2982b724f59f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Pop Health Bar</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Health Bar<br>         <b>Address:</b> 67 Portland St, Toronto, ON M5V 2M9, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 3.32 km     </div>     </div>`)[0];
+                popup_81155c90ee5e375ba6bc187c8b295dfc.setContent(html_6cfde3c572220d8264bf2982b724f59f);
+            
+        
+
+        marker_4573dd05d3a13d940d47169f3674a11f.bindPopup(popup_81155c90ee5e375ba6bc187c8b295dfc)
+        ;
+
+        
+    
+    
+            marker_4573dd05d3a13d940d47169f3674a11f.bindTooltip(
+                `<div>
+                     Pop Health Bar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4573dd05d3a13d940d47169f3674a11f.setIcon(icon_9bcad17d3659546439bb799064274797);
+            
+    
+            var marker_302e3705d8be8cabab914271dff69af5 = L.marker(
+                [43.65535, -79.41199],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_f955a5e9f42eccff465e3826d5ac6965 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fa2c642032c30df23d857cd3679f953a = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_bd3be4da3bd94a19d727d123a42ef820 = $(`<div id="html_bd3be4da3bd94a19d727d123a42ef820" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Healthy Planet - College & Bathurst</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Health Food / Wellness<br>         <b>Address:</b> 555 College St unit 1, Toronto, ON M6G 1A9, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 2.94 km     </div>     </div>`)[0];
+                popup_fa2c642032c30df23d857cd3679f953a.setContent(html_bd3be4da3bd94a19d727d123a42ef820);
+            
+        
+
+        marker_302e3705d8be8cabab914271dff69af5.bindPopup(popup_fa2c642032c30df23d857cd3679f953a)
+        ;
+
+        
+    
+    
+            marker_302e3705d8be8cabab914271dff69af5.bindTooltip(
+                `<div>
+                     Healthy Planet - College & Bathurst
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_302e3705d8be8cabab914271dff69af5.setIcon(icon_f955a5e9f42eccff465e3826d5ac6965);
+            
+    
+            var marker_a9a560783ac01862f87598ac2699a33e = L.marker(
+                [43.649841, -79.3918037],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_12d41db54c17f669f9af51db8e6d43d5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cce4159bf71ebfbf65e31cd1515036a4 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_d773cfbdc5cabbdfdedea9dba916ded9 = $(`<div id="html_d773cfbdc5cabbdfdedea9dba916ded9" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Goodie Vibes</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Healthy Food / Treats<br>         <b>Address:</b> 264 Queen St W, Toronto, ON M5V 0L2, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 2.46 km     </div>     </div>`)[0];
+                popup_cce4159bf71ebfbf65e31cd1515036a4.setContent(html_d773cfbdc5cabbdfdedea9dba916ded9);
+            
+        
+
+        marker_a9a560783ac01862f87598ac2699a33e.bindPopup(popup_cce4159bf71ebfbf65e31cd1515036a4)
+        ;
+
+        
+    
+    
+            marker_a9a560783ac01862f87598ac2699a33e.bindTooltip(
+                `<div>
+                     Goodie Vibes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a9a560783ac01862f87598ac2699a33e.setIcon(icon_12d41db54c17f669f9af51db8e6d43d5);
+            
+    
+            var marker_e17c2f79d702cd4f397b8e2c90d07682 = L.marker(
+                [43.6495626, -79.4333599],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_4722ab20f4b14e5ed879671e28b1be04 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_50b3f926b150f66d721abb659220e5db = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_bfbfb58e622f31e9592d2563486c90c1 = $(`<div id="html_bfbfb58e622f31e9592d2563486c90c1" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Rise Up Foods</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Healthy Food<br>         <b>Address:</b> 1545 Dundas St W, Toronto, ON M6K 1T6, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 4.74 km     </div>     </div>`)[0];
+                popup_50b3f926b150f66d721abb659220e5db.setContent(html_bfbfb58e622f31e9592d2563486c90c1);
+            
+        
+
+        marker_e17c2f79d702cd4f397b8e2c90d07682.bindPopup(popup_50b3f926b150f66d721abb659220e5db)
+        ;
+
+        
+    
+    
+            marker_e17c2f79d702cd4f397b8e2c90d07682.bindTooltip(
+                `<div>
+                     Rise Up Foods
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e17c2f79d702cd4f397b8e2c90d07682.setIcon(icon_4722ab20f4b14e5ed879671e28b1be04);
+            
+    
+            var marker_aaa71fffd6bd333281f4217b26ae2ef3 = L.marker(
+                [43.66566, -79.3804862],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_4e87901cacc580d82cca989dd22b35f8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fa25e484c26d4281cb01783649d6899a = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_bfb03ef3a924a4b7cb4722f37a8e48a1 = $(`<div id="html_bfb03ef3a924a4b7cb4722f37a8e48a1" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Freshii - Wellesley</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Healthy Fast Casual<br>         <b>Address:</b> 77 Wellesley St E, Toronto, ON M4Y 1H5, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.6 km     </div>     </div>`)[0];
+                popup_fa25e484c26d4281cb01783649d6899a.setContent(html_bfb03ef3a924a4b7cb4722f37a8e48a1);
+            
+        
+
+        marker_aaa71fffd6bd333281f4217b26ae2ef3.bindPopup(popup_fa25e484c26d4281cb01783649d6899a)
+        ;
+
+        
+    
+    
+            marker_aaa71fffd6bd333281f4217b26ae2ef3.bindTooltip(
+                `<div>
+                     Freshii - Wellesley
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_aaa71fffd6bd333281f4217b26ae2ef3.setIcon(icon_4e87901cacc580d82cca989dd22b35f8);
+            
+    
+            var marker_ded792e8794a205a169353f069dff857 = L.marker(
+                [43.74188, -79.22242],
+                {
+}
+            ).addTo(feature_group_f205d1a01d3158b11f486cf8dc23cdb3);
+        
+    
+            var icon_ee37369466d566b4a3c5edcf459ade68 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_425734390820c0bdd82565981fb12d01 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_789e72f2587f651127db7e67a0a97b54 = $(`<div id="html_789e72f2587f651127db7e67a0a97b54" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>SUPER FOOD MART</b><br>         <b>Category:</b> Juice & Superfood<br>         <b>Subcategory:</b> Superfood / Health Market<br>         <b>Address:</b> 3143 Eglinton Ave E, Scarborough, ON M1J 2G2, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 15.12 km     </div>     </div>`)[0];
+                popup_425734390820c0bdd82565981fb12d01.setContent(html_789e72f2587f651127db7e67a0a97b54);
+            
+        
+
+        marker_ded792e8794a205a169353f069dff857.bindPopup(popup_425734390820c0bdd82565981fb12d01)
+        ;
+
+        
+    
+    
+            marker_ded792e8794a205a169353f069dff857.bindTooltip(
+                `<div>
+                     SUPER FOOD MART
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ded792e8794a205a169353f069dff857.setIcon(icon_ee37369466d566b4a3c5edcf459ade68);
+            
+    
+            feature_group_f205d1a01d3158b11f486cf8dc23cdb3.addTo(map_4e7a56d69af5055e556e21c4e52da4d5);
+        
+    
+            var feature_group_e0bdf5410c1c20a97e272e4582ccbf6a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_9c1f63612247b59a6482c8675c378289 = L.marker(
+                [43.6714812, -79.384736],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_87dcc8d947ffafa2d9da9b23b91dc689 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fb12f2e9b9665127e4425e2588aef716 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_719f202a61bf423788a53c1e37f67981 = $(`<div id="html_719f202a61bf423788a53c1e37f67981" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>GoodLife Fitness Toronto Bloor and Park</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Gym<br>         <b>Address:</b> 8 Park Rd, Toronto, ON M4W 3G8, Canada<br>         <b>Rating:</b> 4.0<br>         <b>Distance from 175 Bloor St E:</b> 0.19 km     </div>     </div>`)[0];
+                popup_fb12f2e9b9665127e4425e2588aef716.setContent(html_719f202a61bf423788a53c1e37f67981);
+            
+        
+
+        marker_9c1f63612247b59a6482c8675c378289.bindPopup(popup_fb12f2e9b9665127e4425e2588aef716)
+        ;
+
+        
+    
+    
+            marker_9c1f63612247b59a6482c8675c378289.bindTooltip(
+                `<div>
+                     GoodLife Fitness Toronto Bloor and Park
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9c1f63612247b59a6482c8675c378289.setIcon(icon_87dcc8d947ffafa2d9da9b23b91dc689);
+            
+    
+            var marker_e3887fc602d37b283172ec5788a3c40b = L.marker(
+                [43.66785, -79.3855],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_901534ad7dd46f617c35e18e7715094b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9a011c8c3e2c617334b7c0907856edd0 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_c037c0578f64b6a0c4806fdeb46a5f68 = $(`<div id="html_c037c0578f64b6a0c4806fdeb46a5f68" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Clubhouse Toronto</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Community / Fitness<br>         <b>Address:</b> 643 Yonge St, Toronto, ON M4Y 1Z9, Canada<br>         <b>Rating:</b> 4.7<br>         <b>Distance from 175 Bloor St E:</b> 0.42 km     </div>     </div>`)[0];
+                popup_9a011c8c3e2c617334b7c0907856edd0.setContent(html_c037c0578f64b6a0c4806fdeb46a5f68);
+            
+        
+
+        marker_e3887fc602d37b283172ec5788a3c40b.bindPopup(popup_9a011c8c3e2c617334b7c0907856edd0)
+        ;
+
+        
+    
+    
+            marker_e3887fc602d37b283172ec5788a3c40b.bindTooltip(
+                `<div>
+                     Clubhouse Toronto
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e3887fc602d37b283172ec5788a3c40b.setIcon(icon_901534ad7dd46f617c35e18e7715094b);
+            
+    
+            var marker_a4c3bbd3236d76dafb73ee9e13a2c605 = L.marker(
+                [43.6697578, -79.3900887],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_b7f821af9914ad00eaa182c1364d80cf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0dbfa177c831ef79937397eee1375caf = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_944fae1d62146235843a3fc6f63d54c3 = $(`<div id="html_944fae1d62146235843a3fc6f63d54c3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>GoodLife Fitness Toronto Bloor and Bay</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Gym<br>         <b>Address:</b> 80 Bloor St W, Toronto, ON M5S 2V1, Canada<br>         <b>Rating:</b> 4.0<br>         <b>Distance from 175 Bloor St E:</b> 0.63 km     </div>     </div>`)[0];
+                popup_0dbfa177c831ef79937397eee1375caf.setContent(html_944fae1d62146235843a3fc6f63d54c3);
+            
+        
+
+        marker_a4c3bbd3236d76dafb73ee9e13a2c605.bindPopup(popup_0dbfa177c831ef79937397eee1375caf)
+        ;
+
+        
+    
+    
+            marker_a4c3bbd3236d76dafb73ee9e13a2c605.bindTooltip(
+                `<div>
+                     GoodLife Fitness Toronto Bloor and Bay
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a4c3bbd3236d76dafb73ee9e13a2c605.setIcon(icon_b7f821af9914ad00eaa182c1364d80cf);
+            
+    
+            var marker_c8e5bdb0f85c4b3d4f89061041f86585 = L.marker(
+                [43.6632183, -79.3850984],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_510760c745d7cc184eb820c128684f52 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1a1f72dc4ec9c9ee4d47653f526883b9 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_580011ea5ba2c376813e977cb45c21c5 = $(`<div id="html_580011ea5ba2c376813e977cb45c21c5" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Central YMCA</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Gym / Community Centre<br>         <b>Address:</b> 20 Grosvenor St, Toronto, ON M4Y 2V5, Canada<br>         <b>Rating:</b> 3.7<br>         <b>Distance from 175 Bloor St E:</b> 0.88 km     </div>     </div>`)[0];
+                popup_1a1f72dc4ec9c9ee4d47653f526883b9.setContent(html_580011ea5ba2c376813e977cb45c21c5);
+            
+        
+
+        marker_c8e5bdb0f85c4b3d4f89061041f86585.bindPopup(popup_1a1f72dc4ec9c9ee4d47653f526883b9)
+        ;
+
+        
+    
+    
+            marker_c8e5bdb0f85c4b3d4f89061041f86585.bindTooltip(
+                `<div>
+                     Central YMCA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c8e5bdb0f85c4b3d4f89061041f86585.setIcon(icon_510760c745d7cc184eb820c128684f52);
+            
+    
+            var marker_ae00e48d5c26101d1b0d76d336c592d2 = L.marker(
+                [43.6675365, -79.3851999],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_7163ee79efb1f48f475b9f9dc04e7c64 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c68d2727d2e74971a798c7359817d508 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_98693b72495c74a1799ee57c57fdc33c = $(`<div id="html_98693b72495c74a1799ee57c57fdc33c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Hone Fitness Isabella</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Gym<br>         <b>Address:</b> 7 Isabella St, Toronto, ON M4Y 1M7, Canada<br>         <b>Rating:</b> 4.2<br>         <b>Distance from 175 Bloor St E:</b> 0.43 km     </div>     </div>`)[0];
+                popup_c68d2727d2e74971a798c7359817d508.setContent(html_98693b72495c74a1799ee57c57fdc33c);
+            
+        
+
+        marker_ae00e48d5c26101d1b0d76d336c592d2.bindPopup(popup_c68d2727d2e74971a798c7359817d508)
+        ;
+
+        
+    
+    
+            marker_ae00e48d5c26101d1b0d76d336c592d2.bindTooltip(
+                `<div>
+                     Hone Fitness Isabella
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ae00e48d5c26101d1b0d76d336c592d2.setIcon(icon_7163ee79efb1f48f475b9f9dc04e7c64);
+            
+    
+            var marker_0f8a8083e68c02f8739da6a36d2bd983 = L.marker(
+                [43.6636606, -79.3837824],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_f87480bb11c1e52a5b46225f042f5b57 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_436de2561af8e56267f7cb2aef8fc086 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_0f2818331514f60a70ab23ac537bc809 = $(`<div id="html_0f2818331514f60a70ab23ac537bc809" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Fit4Less</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Gym<br>         <b>Address:</b> 515 Yonge St, Toronto, ON M4Y 0J3, Canada<br>         <b>Rating:</b> 4.7<br>         <b>Distance from 175 Bloor St E:</b> 0.81 km     </div>     </div>`)[0];
+                popup_436de2561af8e56267f7cb2aef8fc086.setContent(html_0f2818331514f60a70ab23ac537bc809);
+            
+        
+
+        marker_0f8a8083e68c02f8739da6a36d2bd983.bindPopup(popup_436de2561af8e56267f7cb2aef8fc086)
+        ;
+
+        
+    
+    
+            marker_0f8a8083e68c02f8739da6a36d2bd983.bindTooltip(
+                `<div>
+                     Fit4Less
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0f8a8083e68c02f8739da6a36d2bd983.setIcon(icon_f87480bb11c1e52a5b46225f042f5b57);
+            
+    
+            var marker_b8dc409d3f28ca565256d370d52ba1b9 = L.marker(
+                [43.6655829, -79.4111876],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_31182307bddc40b0c8bca2824f7e413f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c96948f160b10af3e7bfe1bf61b8cb82 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_de31848e29a4bbbde986092e954b5c7f = $(`<div id="html_de31848e29a4bbbde986092e954b5c7f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Vive Fitness 24/7 Bathurst Toronto</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Gym<br>         <b>Address:</b> 807 Bathurst St, Toronto, ON M5R 3G2, Canada<br>         <b>Rating:</b> 4.5<br>         <b>Distance from 175 Bloor St E:</b> 2.39 km     </div>     </div>`)[0];
+                popup_c96948f160b10af3e7bfe1bf61b8cb82.setContent(html_de31848e29a4bbbde986092e954b5c7f);
+            
+        
+
+        marker_b8dc409d3f28ca565256d370d52ba1b9.bindPopup(popup_c96948f160b10af3e7bfe1bf61b8cb82)
+        ;
+
+        
+    
+    
+            marker_b8dc409d3f28ca565256d370d52ba1b9.bindTooltip(
+                `<div>
+                     Vive Fitness 24/7 Bathurst Toronto
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b8dc409d3f28ca565256d370d52ba1b9.setIcon(icon_31182307bddc40b0c8bca2824f7e413f);
+            
+    
+            var marker_9e58a0421fe61fcbafa8331de33c184c = L.marker(
+                [43.6688758, -79.3826531],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_056fada71d616172dc5f6b78286f2840 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a29115ea08de241ac2b35ec30ae5a58d = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_95ff53b9d9beaed5d44d8da45e354deb = $(`<div id="html_95ff53b9d9beaed5d44d8da45e354deb" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Lyft Fitness Toronto Gym and Personal Training</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Gym / Personal Training<br>         <b>Address:</b> 620 Church St PH Level, Toronto, ON M4Y 2G2, Canada<br>         <b>Rating:</b> 5.0<br>         <b>Distance from 175 Bloor St E:</b> 0.22 km     </div>     </div>`)[0];
+                popup_a29115ea08de241ac2b35ec30ae5a58d.setContent(html_95ff53b9d9beaed5d44d8da45e354deb);
+            
+        
+
+        marker_9e58a0421fe61fcbafa8331de33c184c.bindPopup(popup_a29115ea08de241ac2b35ec30ae5a58d)
+        ;
+
+        
+    
+    
+            marker_9e58a0421fe61fcbafa8331de33c184c.bindTooltip(
+                `<div>
+                     Lyft Fitness Toronto Gym and Personal Training
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9e58a0421fe61fcbafa8331de33c184c.setIcon(icon_056fada71d616172dc5f6b78286f2840);
+            
+    
+            var marker_64ebc0ced1a254e37dab59c2be76cf81 = L.marker(
+                [43.654212, -79.379899],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_bed4eb69cb0bc933505cfe5e79714951 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ae57ad2f47794aec437e9b49095ab381 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_679798a0f3067b71c6b33b2c5b997548 = $(`<div id="html_679798a0f3067b71c6b33b2c5b997548" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Sweat and Tonic</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Boutique Fitness<br>         <b>Address:</b> 225 Yonge St, Toronto, ON M5B 1N8, Canada<br>         <b>Rating:</b> 4.3<br>         <b>Distance from 175 Bloor St E:</b> 1.87 km     </div>     </div>`)[0];
+                popup_ae57ad2f47794aec437e9b49095ab381.setContent(html_679798a0f3067b71c6b33b2c5b997548);
+            
+        
+
+        marker_64ebc0ced1a254e37dab59c2be76cf81.bindPopup(popup_ae57ad2f47794aec437e9b49095ab381)
+        ;
+
+        
+    
+    
+            marker_64ebc0ced1a254e37dab59c2be76cf81.bindTooltip(
+                `<div>
+                     Sweat and Tonic
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_64ebc0ced1a254e37dab59c2be76cf81.setIcon(icon_bed4eb69cb0bc933505cfe5e79714951);
+            
+    
+            var marker_b1b3941ea45e3ca093dc46106c9b85c3 = L.marker(
+                [43.6698249, -79.3861067],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_7ed30b8fd3ea299260e696480eb30385 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1e83968c12212a7405d6f236e896cf7a = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_cb4fa90c5e6063bc3411dfd06e175216 = $(`<div id="html_cb4fa90c5e6063bc3411dfd06e175216" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>AVANT Yorkville</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Boutique Fitness<br>         <b>Address:</b> 1 Bloor St E, Toronto, ON M4W 0A8, Canada<br>         <b>Rating:</b> 4.8<br>         <b>Distance from 175 Bloor St E:</b> 0.32 km     </div>     </div>`)[0];
+                popup_1e83968c12212a7405d6f236e896cf7a.setContent(html_cb4fa90c5e6063bc3411dfd06e175216);
+            
+        
+
+        marker_b1b3941ea45e3ca093dc46106c9b85c3.bindPopup(popup_1e83968c12212a7405d6f236e896cf7a)
+        ;
+
+        
+    
+    
+            marker_b1b3941ea45e3ca093dc46106c9b85c3.bindTooltip(
+                `<div>
+                     AVANT Yorkville
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b1b3941ea45e3ca093dc46106c9b85c3.setIcon(icon_7ed30b8fd3ea299260e696480eb30385);
+            
+    
+            var marker_35dee3c08be16bee23646fc51ac1b499 = L.marker(
+                [43.669565, -79.388565],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_96bf0ba8179317aa2304ff30655651fb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bdec2ef188ca3d2003686f11d51fc8a3 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_d9cd19e2e30ade96a7035a294bd7ce94 = $(`<div id="html_d9cd19e2e30ade96a7035a294bd7ce94" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>GoodLife Fitness Toronto Manulife Centre</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Gym<br>         <b>Address:</b> 55 Bloor St W #210, Toronto, ON M4W 3T9, Canada<br>         <b>Rating:</b> 3.9<br>         <b>Distance from 175 Bloor St E:</b> 0.51 km     </div>     </div>`)[0];
+                popup_bdec2ef188ca3d2003686f11d51fc8a3.setContent(html_d9cd19e2e30ade96a7035a294bd7ce94);
+            
+        
+
+        marker_35dee3c08be16bee23646fc51ac1b499.bindPopup(popup_bdec2ef188ca3d2003686f11d51fc8a3)
+        ;
+
+        
+    
+    
+            marker_35dee3c08be16bee23646fc51ac1b499.bindTooltip(
+                `<div>
+                     GoodLife Fitness Toronto Manulife Centre
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_35dee3c08be16bee23646fc51ac1b499.setIcon(icon_96bf0ba8179317aa2304ff30655651fb);
+            
+    
+            var marker_f1062681ec352f5d39d3a0f42b6f60dc = L.marker(
+                [43.67054, -79.39231],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_ff42078ef702eef1a2b678b549b1e1c4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a073cb183382842cace845238616ea09 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_a57f9dad10aef0a5a775086fba8e56b8 = $(`<div id="html_a57f9dad10aef0a5a775086fba8e56b8" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>889 Community</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Wellness / Fitness<br>         <b>Address:</b> 101 Yorkville Ave, Toronto, ON M5R 1C1, Canada<br>         <b>Rating:</b> 4.3<br>         <b>Distance from 175 Bloor St E:</b> 0.8 km     </div>     </div>`)[0];
+                popup_a073cb183382842cace845238616ea09.setContent(html_a57f9dad10aef0a5a775086fba8e56b8);
+            
+        
+
+        marker_f1062681ec352f5d39d3a0f42b6f60dc.bindPopup(popup_a073cb183382842cace845238616ea09)
+        ;
+
+        
+    
+    
+            marker_f1062681ec352f5d39d3a0f42b6f60dc.bindTooltip(
+                `<div>
+                     889 Community
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f1062681ec352f5d39d3a0f42b6f60dc.setIcon(icon_ff42078ef702eef1a2b678b549b1e1c4);
+            
+    
+            var marker_8f0f5eca743b11e88f46442733ba812d = L.marker(
+                [43.670021, -79.430058],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_43e9eeae64e03223fae4bc1e53ae1726 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_50b9c0aa96eb6eae638c864d14f63177 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_a4f64936866274c9aed5158df2e93242 = $(`<div id="html_a4f64936866274c9aed5158df2e93242" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Dupont 24 Hour Fitness 24/7 Gym</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Gym<br>         <b>Address:</b> 927 Dupont St, Toronto, ON M6H 1Z1, Canada<br>         <b>Rating:</b> 4.9<br>         <b>Distance from 175 Bloor St E:</b> 3.84 km     </div>     </div>`)[0];
+                popup_50b9c0aa96eb6eae638c864d14f63177.setContent(html_a4f64936866274c9aed5158df2e93242);
+            
+        
+
+        marker_8f0f5eca743b11e88f46442733ba812d.bindPopup(popup_50b9c0aa96eb6eae638c864d14f63177)
+        ;
+
+        
+    
+    
+            marker_8f0f5eca743b11e88f46442733ba812d.bindTooltip(
+                `<div>
+                     Dupont 24 Hour Fitness 24/7 Gym
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8f0f5eca743b11e88f46442733ba812d.setIcon(icon_43e9eeae64e03223fae4bc1e53ae1726);
+            
+    
+            var marker_71087007d2e70edef3173c90534a0e2f = L.marker(
+                [43.6746538, -79.3890069],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_c551238591f52beba323700f6db1c562 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_91a8c858fa29e7517fbc4483c8f21f64 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_fb6894fe9ab4af1e490ab66bc88a3478 = $(`<div id="html_fb6894fe9ab4af1e490ab66bc88a3478" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Fit 2 Go Toronto</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Boutique Fitness<br>         <b>Address:</b> 942 Yonge St, Toronto, ON M4W 3S8, Canada<br>         <b>Rating:</b> 4.9<br>         <b>Distance from 175 Bloor St E:</b> 0.67 km     </div>     </div>`)[0];
+                popup_91a8c858fa29e7517fbc4483c8f21f64.setContent(html_fb6894fe9ab4af1e490ab66bc88a3478);
+            
+        
+
+        marker_71087007d2e70edef3173c90534a0e2f.bindPopup(popup_91a8c858fa29e7517fbc4483c8f21f64)
+        ;
+
+        
+    
+    
+            marker_71087007d2e70edef3173c90534a0e2f.bindTooltip(
+                `<div>
+                     Fit 2 Go Toronto
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_71087007d2e70edef3173c90534a0e2f.setIcon(icon_c551238591f52beba323700f6db1c562);
+            
+    
+            var marker_6552a7de5bd4886194e17d4c08045f4b = L.marker(
+                [43.65128, -79.36476],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_28857ffdded8b295ca281526b497b9b8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e3998ce4ab7374d42945e00ddfb8274f = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_14bfdbae8767b2975565deb41efcbdaf = $(`<div id="html_14bfdbae8767b2975565deb41efcbdaf" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Body + Soul Fitness</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Boutique Fitness<br>         <b>Address:</b> 234 Front St E, Toronto, ON M5A 4T9, Canada<br>         <b>Rating:</b> 4.8<br>         <b>Distance from 175 Bloor St E:</b> 2.61 km     </div>     </div>`)[0];
+                popup_e3998ce4ab7374d42945e00ddfb8274f.setContent(html_14bfdbae8767b2975565deb41efcbdaf);
+            
+        
+
+        marker_6552a7de5bd4886194e17d4c08045f4b.bindPopup(popup_e3998ce4ab7374d42945e00ddfb8274f)
+        ;
+
+        
+    
+    
+            marker_6552a7de5bd4886194e17d4c08045f4b.bindTooltip(
+                `<div>
+                     Body + Soul Fitness
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6552a7de5bd4886194e17d4c08045f4b.setIcon(icon_28857ffdded8b295ca281526b497b9b8);
+            
+    
+            var marker_37397b4dee2fa6d1e7ad126484f665c4 = L.marker(
+                [43.6676916, -79.3745264],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_59157a665d9759e426641c0edfe158f6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ab1e719c214bec4b4795214064b05339 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_61fdd202cda845009fe27a262ce014ac = $(`<div id="html_61fdd202cda845009fe27a262ce014ac" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Wellesley Community Centre</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Community Centre<br>         <b>Address:</b> 495 Sherbourne St, Toronto, ON M4X 0A2, Canada<br>         <b>Rating:</b> 4.4<br>         <b>Distance from 175 Bloor St E:</b> 0.73 km     </div>     </div>`)[0];
+                popup_ab1e719c214bec4b4795214064b05339.setContent(html_61fdd202cda845009fe27a262ce014ac);
+            
+        
+
+        marker_37397b4dee2fa6d1e7ad126484f665c4.bindPopup(popup_ab1e719c214bec4b4795214064b05339)
+        ;
+
+        
+    
+    
+            marker_37397b4dee2fa6d1e7ad126484f665c4.bindTooltip(
+                `<div>
+                     Wellesley Community Centre
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_37397b4dee2fa6d1e7ad126484f665c4.setIcon(icon_59157a665d9759e426641c0edfe158f6);
+            
+    
+            var marker_10ffc92178da4f40663949ea86f408fc = L.marker(
+                [43.6581577, -79.3500979],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_b2d9b887049e946e12f70a94f5d23823 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aaec7ae9bcad3b1599f1582e33f25212 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_6d4b296a222966a81b2e2c11a818b76e = $(`<div id="html_6d4b296a222966a81b2e2c11a818b76e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Anytime Fitness</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Gym<br>         <b>Address:</b> 100 Broadview Ave, Toronto, ON M4M 3H3, Canada<br>         <b>Rating:</b> 4.6<br>         <b>Distance from 175 Bloor St E:</b> 2.97 km     </div>     </div>`)[0];
+                popup_aaec7ae9bcad3b1599f1582e33f25212.setContent(html_6d4b296a222966a81b2e2c11a818b76e);
+            
+        
+
+        marker_10ffc92178da4f40663949ea86f408fc.bindPopup(popup_aaec7ae9bcad3b1599f1582e33f25212)
+        ;
+
+        
+    
+    
+            marker_10ffc92178da4f40663949ea86f408fc.bindTooltip(
+                `<div>
+                     Anytime Fitness
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_10ffc92178da4f40663949ea86f408fc.setIcon(icon_b2d9b887049e946e12f70a94f5d23823);
+            
+    
+            var marker_3fc56464b63c35500ac91ea9249b8566 = L.marker(
+                [43.6511, -79.378448],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_8d03205b40fa9b5514b67cc552075ea7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_29a16a9476ba1933640df8a3dbf4c7db = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_e319985d7110366a74c3185a66f96f59 = $(`<div id="html_e319985d7110366a74c3185a66f96f59" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>GoodLife Fitness Toronto 137 Yonge Street</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Gym<br>         <b>Address:</b> 137 Yonge St, Toronto, ON M5C 1W6, Canada<br>         <b>Rating:</b> 3.9<br>         <b>Distance from 175 Bloor St E:</b> 2.22 km     </div>     </div>`)[0];
+                popup_29a16a9476ba1933640df8a3dbf4c7db.setContent(html_e319985d7110366a74c3185a66f96f59);
+            
+        
+
+        marker_3fc56464b63c35500ac91ea9249b8566.bindPopup(popup_29a16a9476ba1933640df8a3dbf4c7db)
+        ;
+
+        
+    
+    
+            marker_3fc56464b63c35500ac91ea9249b8566.bindTooltip(
+                `<div>
+                     GoodLife Fitness Toronto 137 Yonge Street
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3fc56464b63c35500ac91ea9249b8566.setIcon(icon_8d03205b40fa9b5514b67cc552075ea7);
+            
+    
+            var marker_303327206cd457310dace86f562c5f06 = L.marker(
+                [43.66873, -79.386032],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_7e5c1a4aa91124592b869161a00823b0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_13de047c86aa1ecc08940c056571f679 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_73b5448af7fb02ee33d0a0f643c2bb17 = $(`<div id="html_73b5448af7fb02ee33d0a0f643c2bb17" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>SHINE FIT | Dance Fitness Studio - Yorkville</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Dance Fitness<br>         <b>Address:</b> 4 Charles St E, Toronto, ON M4Y 2B2, Canada<br>         <b>Rating:</b> 5.0<br>         <b>Distance from 175 Bloor St E:</b> 0.38 km     </div>     </div>`)[0];
+                popup_13de047c86aa1ecc08940c056571f679.setContent(html_73b5448af7fb02ee33d0a0f643c2bb17);
+            
+        
+
+        marker_303327206cd457310dace86f562c5f06.bindPopup(popup_13de047c86aa1ecc08940c056571f679)
+        ;
+
+        
+    
+    
+            marker_303327206cd457310dace86f562c5f06.bindTooltip(
+                `<div>
+                     SHINE FIT | Dance Fitness Studio - Yorkville
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_303327206cd457310dace86f562c5f06.setIcon(icon_7e5c1a4aa91124592b869161a00823b0);
+            
+    
+            var marker_f2c1b68949ef2497162f691c0d279890 = L.marker(
+                [43.6785182, -79.3899129],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_4bea70a8bcf0836aeedcb4345ce76f82 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_391c8aa2d6ad7c0d8a55c369438cc159 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_8fbe169145d6caf47bfcb3a1b7b0facb = $(`<div id="html_8fbe169145d6caf47bfcb3a1b7b0facb" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>MOA Pilates Studio by adel</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates<br>         <b>Address:</b> 1055 Yonge St, Toronto, ON M4W 2L2, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 1.04 km     </div>     </div>`)[0];
+                popup_391c8aa2d6ad7c0d8a55c369438cc159.setContent(html_8fbe169145d6caf47bfcb3a1b7b0facb);
+            
+        
+
+        marker_f2c1b68949ef2497162f691c0d279890.bindPopup(popup_391c8aa2d6ad7c0d8a55c369438cc159)
+        ;
+
+        
+    
+    
+            marker_f2c1b68949ef2497162f691c0d279890.bindTooltip(
+                `<div>
+                     MOA Pilates Studio by adel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f2c1b68949ef2497162f691c0d279890.setIcon(icon_4bea70a8bcf0836aeedcb4345ce76f82);
+            
+    
+            var marker_d5ee238c18755551a21d0f94a7edb653 = L.marker(
+                [43.6670383, -79.3851276],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_32125fc3ae3c3477e21453865788a856 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0be0a9bb1f58a602ad5fadf5b781ea5d = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_22a5f51efc4fa7596fbafdfddc6c5228 = $(`<div id="html_22a5f51efc4fa7596fbafdfddc6c5228" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Enjoy Pilates Studio - Downtown</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates<br>         <b>Address:</b> 615 Yonge St #300, Toronto, ON M4Y 1Z5, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.48 km     </div>     </div>`)[0];
+                popup_0be0a9bb1f58a602ad5fadf5b781ea5d.setContent(html_22a5f51efc4fa7596fbafdfddc6c5228);
+            
+        
+
+        marker_d5ee238c18755551a21d0f94a7edb653.bindPopup(popup_0be0a9bb1f58a602ad5fadf5b781ea5d)
+        ;
+
+        
+    
+    
+            marker_d5ee238c18755551a21d0f94a7edb653.bindTooltip(
+                `<div>
+                     Enjoy Pilates Studio - Downtown
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d5ee238c18755551a21d0f94a7edb653.setIcon(icon_32125fc3ae3c3477e21453865788a856);
+            
+    
+            var marker_95b12b6aaa7cf24761e6387250029129 = L.marker(
+                [43.6705703, -79.3939249],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_975b6bd8e814bebf5300077b82e6de1f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aa4873a010f72008106e538519a5c9e8 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_3c8481a2d048e55d2b6d16d304d1bf94 = $(`<div id="html_3c8481a2d048e55d2b6d16d304d1bf94" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Pilatika Yorkville</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates<br>         <b>Address:</b> Yorkville Ave, Toronto, ON M4W 0B9, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.93 km     </div>     </div>`)[0];
+                popup_aa4873a010f72008106e538519a5c9e8.setContent(html_3c8481a2d048e55d2b6d16d304d1bf94);
+            
+        
+
+        marker_95b12b6aaa7cf24761e6387250029129.bindPopup(popup_aa4873a010f72008106e538519a5c9e8)
+        ;
+
+        
+    
+    
+            marker_95b12b6aaa7cf24761e6387250029129.bindTooltip(
+                `<div>
+                     Pilatika Yorkville
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_95b12b6aaa7cf24761e6387250029129.setIcon(icon_975b6bd8e814bebf5300077b82e6de1f);
+            
+    
+            var marker_4136fa72f17b2fbab192d04e033a6c33 = L.marker(
+                [43.6721692, -79.3907856],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_fc1cdaff0421483e886dc1e5a096f790 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c6cacf5fdeb5be223be36bebdda54378 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_ba09487af501a7f72448fb398bf7ba1e = $(`<div id="html_ba09487af501a7f72448fb398bf7ba1e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Mindful Movement Centre</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates / Movement<br>         <b>Address:</b> 68 Scollard St Suite 301, Toronto, ON M5R 1G2, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.69 km     </div>     </div>`)[0];
+                popup_c6cacf5fdeb5be223be36bebdda54378.setContent(html_ba09487af501a7f72448fb398bf7ba1e);
+            
+        
+
+        marker_4136fa72f17b2fbab192d04e033a6c33.bindPopup(popup_c6cacf5fdeb5be223be36bebdda54378)
+        ;
+
+        
+    
+    
+            marker_4136fa72f17b2fbab192d04e033a6c33.bindTooltip(
+                `<div>
+                     Mindful Movement Centre
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4136fa72f17b2fbab192d04e033a6c33.setIcon(icon_fc1cdaff0421483e886dc1e5a096f790);
+            
+    
+            var marker_9a8e1328d2ac1880ec9c2ac9a11f8151 = L.marker(
+                [43.6707548, -79.3893561],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_483e808bfde194391dc5f5ed1c4326d6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_358f636dc7a39c2303f09321ff4a92b7 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_77d1507bb384d5e542810329b27d6b6e = $(`<div id="html_77d1507bb384d5e542810329b27d6b6e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Carrie's Pilates Yorkville</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates<br>         <b>Address:</b> 62 Cumberland St, Toronto, ON M4W 1J5, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.56 km     </div>     </div>`)[0];
+                popup_358f636dc7a39c2303f09321ff4a92b7.setContent(html_77d1507bb384d5e542810329b27d6b6e);
+            
+        
+
+        marker_9a8e1328d2ac1880ec9c2ac9a11f8151.bindPopup(popup_358f636dc7a39c2303f09321ff4a92b7)
+        ;
+
+        
+    
+    
+            marker_9a8e1328d2ac1880ec9c2ac9a11f8151.bindTooltip(
+                `<div>
+                     Carrie's Pilates Yorkville
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9a8e1328d2ac1880ec9c2ac9a11f8151.setIcon(icon_483e808bfde194391dc5f5ed1c4326d6);
+            
+    
+            var marker_5175b9e10ee7b2e9fd4b4d70bc9d3344 = L.marker(
+                [43.6712292, -79.393526],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_48e4a7add531e4122486422ba03426fd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e4571e4ba1567ef37d649572361f776c = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_3dc1f657debf9967921f9c3ded76d4aa = $(`<div id="html_3dc1f657debf9967921f9c3ded76d4aa" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Pilates By Stav</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates<br>         <b>Address:</b> 14A Hazelton Ave 2nd Floor, Toronto, ON M5R 2E2, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.89 km     </div>     </div>`)[0];
+                popup_e4571e4ba1567ef37d649572361f776c.setContent(html_3dc1f657debf9967921f9c3ded76d4aa);
+            
+        
+
+        marker_5175b9e10ee7b2e9fd4b4d70bc9d3344.bindPopup(popup_e4571e4ba1567ef37d649572361f776c)
+        ;
+
+        
+    
+    
+            marker_5175b9e10ee7b2e9fd4b4d70bc9d3344.bindTooltip(
+                `<div>
+                     Pilates By Stav
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5175b9e10ee7b2e9fd4b4d70bc9d3344.setIcon(icon_48e4a7add531e4122486422ba03426fd);
+            
+    
+            var marker_e4919e481128b496c4003efb34de24c8 = L.marker(
+                [43.6645037, -79.3854482],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_eda12aadc7398214718e1b87ce95ff10 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dc4523666a413f6e2ac7e92f9cd3ccdb = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_00ba67e0a7779330d7ad7d30744dcfa7 = $(`<div id="html_00ba67e0a7779330d7ad7d30744dcfa7" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Dal Pilates - Wellesley</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates<br>         <b>Address:</b> 15 Wellesley St W Unit 318, Toronto, ON M4Y 0G7, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.75 km     </div>     </div>`)[0];
+                popup_dc4523666a413f6e2ac7e92f9cd3ccdb.setContent(html_00ba67e0a7779330d7ad7d30744dcfa7);
+            
+        
+
+        marker_e4919e481128b496c4003efb34de24c8.bindPopup(popup_dc4523666a413f6e2ac7e92f9cd3ccdb)
+        ;
+
+        
+    
+    
+            marker_e4919e481128b496c4003efb34de24c8.bindTooltip(
+                `<div>
+                     Dal Pilates - Wellesley
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e4919e481128b496c4003efb34de24c8.setIcon(icon_eda12aadc7398214718e1b87ce95ff10);
+            
+    
+            var marker_9ee5159d418796c87912f69a27bb8c1b = L.marker(
+                [43.67208, -79.39136],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_d39754ade1eee21f8f7d3a76abc35a46 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_87e1915642d3753d584c4bae48621a88 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_ac167ae19b9f08237535e398ebd93744 = $(`<div id="html_ac167ae19b9f08237535e398ebd93744" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Free Flow Pilates X FarenMae</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates<br>         <b>Address:</b> 80 Scollard St, Toronto, ON M5R 1G2, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.73 km     </div>     </div>`)[0];
+                popup_87e1915642d3753d584c4bae48621a88.setContent(html_ac167ae19b9f08237535e398ebd93744);
+            
+        
+
+        marker_9ee5159d418796c87912f69a27bb8c1b.bindPopup(popup_87e1915642d3753d584c4bae48621a88)
+        ;
+
+        
+    
+    
+            marker_9ee5159d418796c87912f69a27bb8c1b.bindTooltip(
+                `<div>
+                     Free Flow Pilates X FarenMae
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9ee5159d418796c87912f69a27bb8c1b.setIcon(icon_d39754ade1eee21f8f7d3a76abc35a46);
+            
+    
+            var marker_3a6f3bbfd2b8ad63a6df843ba0e76722 = L.marker(
+                [43.661, -79.35997],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_595211107d50ba5e611ee271fc0cb6e0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a912ab742a644bc4ea963280c9930f2e = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_cec670856df18c906597ed66e326f3e5 = $(`<div id="html_cec670856df18c906597ed66e326f3e5" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Ultra Pilates Toronto</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates<br>         <b>Address:</b> 658 Dundas St E, Toronto, ON M5A 0R3, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 2.12 km     </div>     </div>`)[0];
+                popup_a912ab742a644bc4ea963280c9930f2e.setContent(html_cec670856df18c906597ed66e326f3e5);
+            
+        
+
+        marker_3a6f3bbfd2b8ad63a6df843ba0e76722.bindPopup(popup_a912ab742a644bc4ea963280c9930f2e)
+        ;
+
+        
+    
+    
+            marker_3a6f3bbfd2b8ad63a6df843ba0e76722.bindTooltip(
+                `<div>
+                     Ultra Pilates Toronto
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3a6f3bbfd2b8ad63a6df843ba0e76722.setIcon(icon_595211107d50ba5e611ee271fc0cb6e0);
+            
+    
+            var marker_faa64fbf9bcbe67d2ef35c0e2a83f70b = L.marker(
+                [43.6788886, -79.3899721],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_0fa2449f14c909eb28979fe64455452c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9ef9d9aa33df0beb413dcd730f486535 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_75b04acf9fe36b0841465a351c0b5c0d = $(`<div id="html_75b04acf9fe36b0841465a351c0b5c0d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>LSDR Studios - Summerhill</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates<br>         <b>Address:</b> 1073 Yonge St 2nd Floor, Toronto, ON M4W 1Y5, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 1.07 km     </div>     </div>`)[0];
+                popup_9ef9d9aa33df0beb413dcd730f486535.setContent(html_75b04acf9fe36b0841465a351c0b5c0d);
+            
+        
+
+        marker_faa64fbf9bcbe67d2ef35c0e2a83f70b.bindPopup(popup_9ef9d9aa33df0beb413dcd730f486535)
+        ;
+
+        
+    
+    
+            marker_faa64fbf9bcbe67d2ef35c0e2a83f70b.bindTooltip(
+                `<div>
+                     LSDR Studios - Summerhill
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_faa64fbf9bcbe67d2ef35c0e2a83f70b.setIcon(icon_0fa2449f14c909eb28979fe64455452c);
+            
+    
+            var marker_06a097e2b88b66f6bab5e4cf42e5c273 = L.marker(
+                [43.6707855, -79.3856867],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_93b12910a8300a4624f2676167261a09 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e3568bc3f03897f2c6be7930faa428e5 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_fd4a6acae7fd851857a266f2562e7be2 = $(`<div id="html_fd4a6acae7fd851857a266f2562e7be2" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>STOTT PILATES Studio and Academy</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates<br>         <b>Address:</b> 2 Bloor St E Suite 1000, Toronto, ON M4W 1A8, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.26 km     </div>     </div>`)[0];
+                popup_e3568bc3f03897f2c6be7930faa428e5.setContent(html_fd4a6acae7fd851857a266f2562e7be2);
+            
+        
+
+        marker_06a097e2b88b66f6bab5e4cf42e5c273.bindPopup(popup_e3568bc3f03897f2c6be7930faa428e5)
+        ;
+
+        
+    
+    
+            marker_06a097e2b88b66f6bab5e4cf42e5c273.bindTooltip(
+                `<div>
+                     STOTT PILATES Studio and Academy
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_06a097e2b88b66f6bab5e4cf42e5c273.setIcon(icon_93b12910a8300a4624f2676167261a09);
+            
+    
+            var marker_3cf676619fe5aafe2b1cf6d7939c366d = L.marker(
+                [43.661997, -79.383159],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_25376e493875711c384590db96a27e62 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_498f131b3cc2a975bd47a3544ee15699 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_7f120724f875b021d3f9450781dab3c7 = $(`<div id="html_7f120724f875b021d3f9450781dab3c7" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Sagrario Pilates Studio</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates<br>         <b>Address:</b> 1 Wood St second floor, Toronto, ON M4Y 2N4, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.99 km     </div>     </div>`)[0];
+                popup_498f131b3cc2a975bd47a3544ee15699.setContent(html_7f120724f875b021d3f9450781dab3c7);
+            
+        
+
+        marker_3cf676619fe5aafe2b1cf6d7939c366d.bindPopup(popup_498f131b3cc2a975bd47a3544ee15699)
+        ;
+
+        
+    
+    
+            marker_3cf676619fe5aafe2b1cf6d7939c366d.bindTooltip(
+                `<div>
+                     Sagrario Pilates Studio
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3cf676619fe5aafe2b1cf6d7939c366d.setIcon(icon_25376e493875711c384590db96a27e62);
+            
+    
+            var marker_34895d59be13e337ce96d6cf96a478e1 = L.marker(
+                [43.6674369, -79.3857767],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_8ee1edee5de3a04fe5d1b44f26f592b7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a10043df041dac6b0f0fa86d9b33ec18 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_164a32d93733e50ee76e8651b8c2bb3f = $(`<div id="html_164a32d93733e50ee76e8651b8c2bb3f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>IAM Yoga Pilates</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Yoga / Pilates<br>         <b>Address:</b> 680 Yonge St, Toronto, ON M4Y 2A6, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.47 km     </div>     </div>`)[0];
+                popup_a10043df041dac6b0f0fa86d9b33ec18.setContent(html_164a32d93733e50ee76e8651b8c2bb3f);
+            
+        
+
+        marker_34895d59be13e337ce96d6cf96a478e1.bindPopup(popup_a10043df041dac6b0f0fa86d9b33ec18)
+        ;
+
+        
+    
+    
+            marker_34895d59be13e337ce96d6cf96a478e1.bindTooltip(
+                `<div>
+                     IAM Yoga Pilates
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_34895d59be13e337ce96d6cf96a478e1.setIcon(icon_8ee1edee5de3a04fe5d1b44f26f592b7);
+            
+    
+            var marker_83642c355491856c98363f3e6aa4685b = L.marker(
+                [43.6660946, -79.3843289],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_7b54febc64bcf32892a90aa9dfd77b77 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1e851f25e225ef1b803a8c625f8ad561 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_838adf4c1b89023063e86b08d1f83681 = $(`<div id="html_838adf4c1b89023063e86b08d1f83681" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>PILATES Q</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates<br>         <b>Address:</b> 3 Gloucester St, Toronto, ON M4Y 0C6, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.55 km     </div>     </div>`)[0];
+                popup_1e851f25e225ef1b803a8c625f8ad561.setContent(html_838adf4c1b89023063e86b08d1f83681);
+            
+        
+
+        marker_83642c355491856c98363f3e6aa4685b.bindPopup(popup_1e851f25e225ef1b803a8c625f8ad561)
+        ;
+
+        
+    
+    
+            marker_83642c355491856c98363f3e6aa4685b.bindTooltip(
+                `<div>
+                     PILATES Q
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_83642c355491856c98363f3e6aa4685b.setIcon(icon_7b54febc64bcf32892a90aa9dfd77b77);
+            
+    
+            var marker_64adb6081227f0999de01f01ff57158a = L.marker(
+                [43.65068, -79.390054],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_074b8792587b9cdd2c2e955f6b1bdac7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_018b7884a06f5e628e79d64f48f4efe9 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_c3154981b7a0a2954bef062eed075c71 = $(`<div id="html_c3154981b7a0a2954bef062eed075c71" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Ki Movement</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates / Movement<br>         <b>Address:</b> 14 McCaul St #202, Toronto, ON M5T 1V6, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 2.33 km     </div>     </div>`)[0];
+                popup_018b7884a06f5e628e79d64f48f4efe9.setContent(html_c3154981b7a0a2954bef062eed075c71);
+            
+        
+
+        marker_64adb6081227f0999de01f01ff57158a.bindPopup(popup_018b7884a06f5e628e79d64f48f4efe9)
+        ;
+
+        
+    
+    
+            marker_64adb6081227f0999de01f01ff57158a.bindTooltip(
+                `<div>
+                     Ki Movement
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_64adb6081227f0999de01f01ff57158a.setIcon(icon_074b8792587b9cdd2c2e955f6b1bdac7);
+            
+    
+            var marker_4c7b42d6c86757d3cc3b1f69499a6280 = L.marker(
+                [43.6833585, -79.3924674],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_fe4e2304766669dc7c84500a9a58dffd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_61ee6da3816908029d3460150d4cfd8a = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_618c1f31f95948e960a424d0bd16e458 = $(`<div id="html_618c1f31f95948e960a424d0bd16e458" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Nuala Pilates</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates<br>         <b>Address:</b> 1260 Yonge St, Toronto, ON M4T 1W5, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 1.6 km     </div>     </div>`)[0];
+                popup_61ee6da3816908029d3460150d4cfd8a.setContent(html_618c1f31f95948e960a424d0bd16e458);
+            
+        
+
+        marker_4c7b42d6c86757d3cc3b1f69499a6280.bindPopup(popup_61ee6da3816908029d3460150d4cfd8a)
+        ;
+
+        
+    
+    
+            marker_4c7b42d6c86757d3cc3b1f69499a6280.bindTooltip(
+                `<div>
+                     Nuala Pilates
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4c7b42d6c86757d3cc3b1f69499a6280.setIcon(icon_fe4e2304766669dc7c84500a9a58dffd);
+            
+    
+            var marker_e7542cbe5e59ba1aabe8d9d8d80f5556 = L.marker(
+                [43.6551, -79.35588],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_ebd192797ec9ad4e3bd75971c386b1cb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b4bc617b6ee644133a3f7b626ad7a486 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_9a10629f8641b40aab9a37614fb40419 = $(`<div id="html_9a10629f8641b40aab9a37614fb40419" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Solis Movement Hot Pilates, Yoga & Reformer - East Toronto</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates / Yoga<br>         <b>Address:</b> 10 St Lawrence St Second Floor, Toronto, ON M5A 3N1, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 2.77 km     </div>     </div>`)[0];
+                popup_b4bc617b6ee644133a3f7b626ad7a486.setContent(html_9a10629f8641b40aab9a37614fb40419);
+            
+        
+
+        marker_e7542cbe5e59ba1aabe8d9d8d80f5556.bindPopup(popup_b4bc617b6ee644133a3f7b626ad7a486)
+        ;
+
+        
+    
+    
+            marker_e7542cbe5e59ba1aabe8d9d8d80f5556.bindTooltip(
+                `<div>
+                     Solis Movement Hot Pilates, Yoga & Reformer - East Toronto
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e7542cbe5e59ba1aabe8d9d8d80f5556.setIcon(icon_ebd192797ec9ad4e3bd75971c386b1cb);
+            
+    
+            var marker_9e9ae7165445c9b89de06a810fde6c8a = L.marker(
+                [43.65914, -79.35345],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_b8fec774db1e9f2c997044bc2ec1104c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "universal-access",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b787299efd53ca84c1b8d124c7e75055 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_fa7f6c503d0aa2bd169c259170dcf59a = $(`<div id="html_fa7f6c503d0aa2bd169c259170dcf59a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Jamieson Pilates & Movement Studio</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Pilates / Movement<br>         <b>Address:</b> 27 Davies Ave unit 1, Toronto, ON M4M 2A9, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 2.68 km     </div>     </div>`)[0];
+                popup_b787299efd53ca84c1b8d124c7e75055.setContent(html_fa7f6c503d0aa2bd169c259170dcf59a);
+            
+        
+
+        marker_9e9ae7165445c9b89de06a810fde6c8a.bindPopup(popup_b787299efd53ca84c1b8d124c7e75055)
+        ;
+
+        
+    
+    
+            marker_9e9ae7165445c9b89de06a810fde6c8a.bindTooltip(
+                `<div>
+                     Jamieson Pilates & Movement Studio
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9e9ae7165445c9b89de06a810fde6c8a.setIcon(icon_b8fec774db1e9f2c997044bc2ec1104c);
+            
+    
+            var marker_a734d6596f9c61861b243544bf9f50ed = L.marker(
+                [43.6716384, -79.3831727],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_85367351cdb5422b42eec76029ad8cce = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a997c84cf3862a73d367d5bca0e5b39d = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_7af57e57b1c46e1572cc41c9e8b80a00 = $(`<div id="html_7af57e57b1c46e1572cc41c9e8b80a00" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Orangetheory Fitness - Bloor East</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Orangetheory<br>         <b>Address:</b> 160 Bloor St E Suite 100, Toronto, ON M4W 1B9, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.1 km     </div>     </div>`)[0];
+                popup_a997c84cf3862a73d367d5bca0e5b39d.setContent(html_7af57e57b1c46e1572cc41c9e8b80a00);
+            
+        
+
+        marker_a734d6596f9c61861b243544bf9f50ed.bindPopup(popup_a997c84cf3862a73d367d5bca0e5b39d)
+        ;
+
+        
+    
+    
+            marker_a734d6596f9c61861b243544bf9f50ed.bindTooltip(
+                `<div>
+                     Orangetheory Fitness - Bloor East
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a734d6596f9c61861b243544bf9f50ed.setIcon(icon_85367351cdb5422b42eec76029ad8cce);
+            
+    
+            var marker_c1c4ff42b69ea475b893bf643be78c0a = L.marker(
+                [43.646032, -79.3841483],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_54f517afa2b1fa1f2541c834c77c9947 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c844d4b6e2b203b837a982279696e9d3 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_1647067dfec41620c56fa1aefcf7b707 = $(`<div id="html_1647067dfec41620c56fa1aefcf7b707" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Orangetheory Fitness - University</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Orangetheory<br>         <b>Address:</b> 40 University Ave, Toronto, ON M5J 1J9, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 2.77 km     </div>     </div>`)[0];
+                popup_c844d4b6e2b203b837a982279696e9d3.setContent(html_1647067dfec41620c56fa1aefcf7b707);
+            
+        
+
+        marker_c1c4ff42b69ea475b893bf643be78c0a.bindPopup(popup_c844d4b6e2b203b837a982279696e9d3)
+        ;
+
+        
+    
+    
+            marker_c1c4ff42b69ea475b893bf643be78c0a.bindTooltip(
+                `<div>
+                     Orangetheory Fitness - University
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c1c4ff42b69ea475b893bf643be78c0a.setIcon(icon_54f517afa2b1fa1f2541c834c77c9947);
+            
+    
+            var marker_1332010526f6b96c3db9c8bdb1cc889d = L.marker(
+                [43.6367424, -79.4002665],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_cf5cc09e88d3b447342621f143d9fc9e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f0f312ab34e99a056d67051b90f65c3d = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_5875aaf70bf58c4b7a506673265eae6c = $(`<div id="html_5875aaf70bf58c4b7a506673265eae6c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Orangetheory Fitness - Fleet</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Orangetheory<br>         <b>Address:</b> 600 Fleet St, Toronto, ON M5V 1B7, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 4.06 km     </div>     </div>`)[0];
+                popup_f0f312ab34e99a056d67051b90f65c3d.setContent(html_5875aaf70bf58c4b7a506673265eae6c);
+            
+        
+
+        marker_1332010526f6b96c3db9c8bdb1cc889d.bindPopup(popup_f0f312ab34e99a056d67051b90f65c3d)
+        ;
+
+        
+    
+    
+            marker_1332010526f6b96c3db9c8bdb1cc889d.bindTooltip(
+                `<div>
+                     Orangetheory Fitness - Fleet
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1332010526f6b96c3db9c8bdb1cc889d.setIcon(icon_cf5cc09e88d3b447342621f143d9fc9e);
+            
+    
+            var marker_c59ced42c6704eda23667fa3ad254820 = L.marker(
+                [43.707471, -79.394278],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_5a2e637ff49673fbd26375bce3334604 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_56daf95ead4f6e9363497cd3bfb7d37c = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_319ca76806a3842c38dc64004e52f5e6 = $(`<div id="html_319ca76806a3842c38dc64004e52f5e6" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Orangetheory Fitness - Eglinton</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Orangetheory<br>         <b>Address:</b> 97 Eglinton Ave E, Toronto, ON M4P 1H4, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 4.17 km     </div>     </div>`)[0];
+                popup_56daf95ead4f6e9363497cd3bfb7d37c.setContent(html_319ca76806a3842c38dc64004e52f5e6);
+            
+        
+
+        marker_c59ced42c6704eda23667fa3ad254820.bindPopup(popup_56daf95ead4f6e9363497cd3bfb7d37c)
+        ;
+
+        
+    
+    
+            marker_c59ced42c6704eda23667fa3ad254820.bindTooltip(
+                `<div>
+                     Orangetheory Fitness - Eglinton
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c59ced42c6704eda23667fa3ad254820.setIcon(icon_5a2e637ff49673fbd26375bce3334604);
+            
+    
+            var marker_4ca24a58d9e54026e8b885826424ffeb = L.marker(
+                [43.64855, -79.48613],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_d32375ab50ed7a86bb79a64c15776ba1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3b29ae2c48064dd837ec12635ec0fd0a = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_dea2d269990cd8c524d4b2e8e2dd6c24 = $(`<div id="html_dea2d269990cd8c524d4b2e8e2dd6c24" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Orangetheory Fitness - Bloor West</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Orangetheory<br>         <b>Address:</b> 2480 Bloor St W, York, ON M6S 1R5, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 8.72 km     </div>     </div>`)[0];
+                popup_3b29ae2c48064dd837ec12635ec0fd0a.setContent(html_dea2d269990cd8c524d4b2e8e2dd6c24);
+            
+        
+
+        marker_4ca24a58d9e54026e8b885826424ffeb.bindPopup(popup_3b29ae2c48064dd837ec12635ec0fd0a)
+        ;
+
+        
+    
+    
+            marker_4ca24a58d9e54026e8b885826424ffeb.bindTooltip(
+                `<div>
+                     Orangetheory Fitness - Bloor West
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4ca24a58d9e54026e8b885826424ffeb.setIcon(icon_d32375ab50ed7a86bb79a64c15776ba1);
+            
+    
+            var marker_bc8457a50e0944e1e872805e0dca4a33 = L.marker(
+                [43.7542086, -79.3512712],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_722cae1e487f40822a6f0c531ef14b4a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fad0f11bae15b641fd323b677bcefb07 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_21fae1cbe77f27c9a1f15a062645c953 = $(`<div id="html_21fae1cbe77f27c9a1f15a062645c953" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Orangetheory Fitness - York Mills</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Orangetheory<br>         <b>Address:</b> 861 York Mills Rd, North York, ON M3B 1Y2, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 9.59 km     </div>     </div>`)[0];
+                popup_fad0f11bae15b641fd323b677bcefb07.setContent(html_21fae1cbe77f27c9a1f15a062645c953);
+            
+        
+
+        marker_bc8457a50e0944e1e872805e0dca4a33.bindPopup(popup_fad0f11bae15b641fd323b677bcefb07)
+        ;
+
+        
+    
+    
+            marker_bc8457a50e0944e1e872805e0dca4a33.bindTooltip(
+                `<div>
+                     Orangetheory Fitness - York Mills
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bc8457a50e0944e1e872805e0dca4a33.setIcon(icon_722cae1e487f40822a6f0c531ef14b4a);
+            
+    
+            var marker_eebf86f26ae9ad4e571b638f39d069a4 = L.marker(
+                [43.6386783, -79.4944984],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_3bf6c2aa09dfb04022e99a2f0d52e2b9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eec162f0b62773137de386d7d79fd917 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_2defb4ca8ee7498d98fa5d4d1fddeae7 = $(`<div id="html_2defb4ca8ee7498d98fa5d4d1fddeae7" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Orangetheory Fitness - Park Lawn</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Orangetheory<br>         <b>Address:</b> 6 Park Lawn Rd, Etobicoke, ON M8V 1A4, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 9.72 km     </div>     </div>`)[0];
+                popup_eec162f0b62773137de386d7d79fd917.setContent(html_2defb4ca8ee7498d98fa5d4d1fddeae7);
+            
+        
+
+        marker_eebf86f26ae9ad4e571b638f39d069a4.bindPopup(popup_eec162f0b62773137de386d7d79fd917)
+        ;
+
+        
+    
+    
+            marker_eebf86f26ae9ad4e571b638f39d069a4.bindTooltip(
+                `<div>
+                     Orangetheory Fitness - Park Lawn
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_eebf86f26ae9ad4e571b638f39d069a4.setIcon(icon_3bf6c2aa09dfb04022e99a2f0d52e2b9);
+            
+    
+            var marker_809bf1aaf36e1e387483d750ab371001 = L.marker(
+                [43.6102147, -79.580018],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_9ee7135d1f582285e44cbd3ef13297cf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9ec6693ba62d4338c32b3cfd11314f04 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_ffd629f6282576237cc3fb01d77b37c6 = $(`<div id="html_ffd629f6282576237cc3fb01d77b37c6" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Orangetheory Fitness - Dundas Mississauga</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Orangetheory<br>         <b>Address:</b> 1476 Dundas St E, Mississauga, ON L4X 1L4, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 17.31 km     </div>     </div>`)[0];
+                popup_9ec6693ba62d4338c32b3cfd11314f04.setContent(html_ffd629f6282576237cc3fb01d77b37c6);
+            
+        
+
+        marker_809bf1aaf36e1e387483d750ab371001.bindPopup(popup_9ec6693ba62d4338c32b3cfd11314f04)
+        ;
+
+        
+    
+    
+            marker_809bf1aaf36e1e387483d750ab371001.bindTooltip(
+                `<div>
+                     Orangetheory Fitness - Dundas Mississauga
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_809bf1aaf36e1e387483d750ab371001.setIcon(icon_9ee7135d1f582285e44cbd3ef13297cf);
+            
+    
+            var marker_52be735e7923f98b0895ae250a35f01d = L.marker(
+                [43.5664831, -79.5708246],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_48888f550adaa89b2db05377a019fb40 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cd6f3adb9f1ee76b08268908e2213162 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_9e083c007bc7bfb56b1de08a27e7c3d5 = $(`<div id="html_9e083c007bc7bfb56b1de08a27e7c3d5" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Orangetheory Fitness - Lakeshore Mississauga</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Orangetheory<br>         <b>Address:</b> 515 Lakeshore Rd E, Mississauga, ON L5G 1H9, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 19.12 km     </div>     </div>`)[0];
+                popup_cd6f3adb9f1ee76b08268908e2213162.setContent(html_9e083c007bc7bfb56b1de08a27e7c3d5);
+            
+        
+
+        marker_52be735e7923f98b0895ae250a35f01d.bindPopup(popup_cd6f3adb9f1ee76b08268908e2213162)
+        ;
+
+        
+    
+    
+            marker_52be735e7923f98b0895ae250a35f01d.bindTooltip(
+                `<div>
+                     Orangetheory Fitness - Lakeshore Mississauga
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_52be735e7923f98b0895ae250a35f01d.setIcon(icon_48888f550adaa89b2db05377a019fb40);
+            
+    
+            var marker_69b524bda8d1eabd311f9e62410529a2 = L.marker(
+                [43.5372139, -79.6878657],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_e395bc131b5559da23dfb4da8f282bce = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5bae0da4f480776ece4725573506c7b3 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_1b7cc564d419e7f9f5c8bf18dad32a43 = $(`<div id="html_1b7cc564d419e7f9f5c8bf18dad32a43" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Orangetheory Fitness - Glen Erin</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Orangetheory<br>         <b>Address:</b> 3476 Glen Erin Dr, Mississauga, ON L5L 3R4, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 28.79 km     </div>     </div>`)[0];
+                popup_5bae0da4f480776ece4725573506c7b3.setContent(html_1b7cc564d419e7f9f5c8bf18dad32a43);
+            
+        
+
+        marker_69b524bda8d1eabd311f9e62410529a2.bindPopup(popup_5bae0da4f480776ece4725573506c7b3)
+        ;
+
+        
+    
+    
+            marker_69b524bda8d1eabd311f9e62410529a2.bindTooltip(
+                `<div>
+                     Orangetheory Fitness - Glen Erin
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_69b524bda8d1eabd311f9e62410529a2.setIcon(icon_e395bc131b5559da23dfb4da8f282bce);
+            
+    
+            var marker_1b7f24767d05e14ace4ca8cac8900ebe = L.marker(
+                [43.6789974, -79.720981],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_54256c53e1c4ff6e7a6ade0bd1221ec2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ee331e1829c17a5022c365fda7dac5d4 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_781c346c693cde12cc6d4bf12c779a63 = $(`<div id="html_781c346c693cde12cc6d4bf12c779a63" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Orangetheory Fitness - Brampton</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Orangetheory<br>         <b>Address:</b> 35 Resolution Dr Unit J08, Brampton, ON L6W 0A6, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 27.31 km     </div>     </div>`)[0];
+                popup_ee331e1829c17a5022c365fda7dac5d4.setContent(html_781c346c693cde12cc6d4bf12c779a63);
+            
+        
+
+        marker_1b7f24767d05e14ace4ca8cac8900ebe.bindPopup(popup_ee331e1829c17a5022c365fda7dac5d4)
+        ;
+
+        
+    
+    
+            marker_1b7f24767d05e14ace4ca8cac8900ebe.bindTooltip(
+                `<div>
+                     Orangetheory Fitness - Brampton
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1b7f24767d05e14ace4ca8cac8900ebe.setIcon(icon_54256c53e1c4ff6e7a6ade0bd1221ec2);
+            
+    
+            var marker_b01dc1004b76b67c83364f73b4da5252 = L.marker(
+                [43.8471045, -79.4597172],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_ceca074bceb58f0fb9edf580433b0f82 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_527ccd9bf525e97c8d3d563a81a78c27 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_ef47a46957c119b3422719d6f6333168 = $(`<div id="html_ef47a46957c119b3422719d6f6333168" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Orangetheory Fitness - Bathurst Vaughan</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Orangetheory<br>         <b>Address:</b> 9200 Bathurst St Unit 25B, Vaughan, ON L4J 8W1, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 20.54 km     </div>     </div>`)[0];
+                popup_527ccd9bf525e97c8d3d563a81a78c27.setContent(html_ef47a46957c119b3422719d6f6333168);
+            
+        
+
+        marker_b01dc1004b76b67c83364f73b4da5252.bindPopup(popup_527ccd9bf525e97c8d3d563a81a78c27)
+        ;
+
+        
+    
+    
+            marker_b01dc1004b76b67c83364f73b4da5252.bindTooltip(
+                `<div>
+                     Orangetheory Fitness - Bathurst Vaughan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b01dc1004b76b67c83364f73b4da5252.setIcon(icon_ceca074bceb58f0fb9edf580433b0f82);
+            
+    
+            var marker_368e85b87b4bcea2bb1cb4b83c2c980c = L.marker(
+                [43.9003293, -79.3944606],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_d3c4497db71e51e5fefc75fd1115ef54 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7d10f07bd3cb3f0ef605d3608d5e8dae = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_a36099f2462a53d79b0bb9984aceb270 = $(`<div id="html_a36099f2462a53d79b0bb9984aceb270" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Orangetheory Fitness - Elgin Mills</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Orangetheory<br>         <b>Address:</b> 10775 Leslie St Unit 405, Richmond Hill, ON L4S 0B2, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 25.51 km     </div>     </div>`)[0];
+                popup_7d10f07bd3cb3f0ef605d3608d5e8dae.setContent(html_a36099f2462a53d79b0bb9984aceb270);
+            
+        
+
+        marker_368e85b87b4bcea2bb1cb4b83c2c980c.bindPopup(popup_7d10f07bd3cb3f0ef605d3608d5e8dae)
+        ;
+
+        
+    
+    
+            marker_368e85b87b4bcea2bb1cb4b83c2c980c.bindTooltip(
+                `<div>
+                     Orangetheory Fitness - Elgin Mills
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_368e85b87b4bcea2bb1cb4b83c2c980c.setIcon(icon_d3c4497db71e51e5fefc75fd1115ef54);
+            
+    
+            var marker_8c6164541795b6dc492e0c935f90fc36 = L.marker(
+                [43.8502822, -79.5322479],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_a07a2f55c5d06f46f0691d22695be667 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aeed735e7f368d99f8b823699339f6c4 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_51a368ace66db54827f4ca4392821d84 = $(`<div id="html_51a368ace66db54827f4ca4392821d84" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Orangetheory Fitness - Major MacKenzie</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Orangetheory<br>         <b>Address:</b> 2891 Major MacKenzie Dr W, Vaughan, ON L6A 3N9, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 23.3 km     </div>     </div>`)[0];
+                popup_aeed735e7f368d99f8b823699339f6c4.setContent(html_51a368ace66db54827f4ca4392821d84);
+            
+        
+
+        marker_8c6164541795b6dc492e0c935f90fc36.bindPopup(popup_aeed735e7f368d99f8b823699339f6c4)
+        ;
+
+        
+    
+    
+            marker_8c6164541795b6dc492e0c935f90fc36.bindTooltip(
+                `<div>
+                     Orangetheory Fitness - Major MacKenzie
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8c6164541795b6dc492e0c935f90fc36.setIcon(icon_a07a2f55c5d06f46f0691d22695be667);
+            
+    
+            var marker_c5f23dd6c6fe843566255eb353ff0f25 = L.marker(
+                [43.6746279, -79.3883],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_27391e5c10b29c5c0cce58c1cc9db55b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b30701f7a5a96daf6edff68aeb0f6e56 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_4ceb1077049959e65c5220e66b496658 = $(`<div id="html_4ceb1077049959e65c5220e66b496658" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>KLABB Studios</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Boutique Fitness<br>         <b>Address:</b> 893 Yonge St 1st Floor, Toronto, ON M4W 2H2, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.63 km     </div>     </div>`)[0];
+                popup_b30701f7a5a96daf6edff68aeb0f6e56.setContent(html_4ceb1077049959e65c5220e66b496658);
+            
+        
+
+        marker_c5f23dd6c6fe843566255eb353ff0f25.bindPopup(popup_b30701f7a5a96daf6edff68aeb0f6e56)
+        ;
+
+        
+    
+    
+            marker_c5f23dd6c6fe843566255eb353ff0f25.bindTooltip(
+                `<div>
+                     KLABB Studios
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c5f23dd6c6fe843566255eb353ff0f25.setIcon(icon_27391e5c10b29c5c0cce58c1cc9db55b);
+            
+    
+            var marker_5c86a97080f9ba92fc5b309cd15527e1 = L.marker(
+                [43.6640791, -79.4153652],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_30e7f21091f7d7efce703e7918dcf214 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_26940bae97d4c3cc621a9a49fc957368 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_bc62f0e51ad8ab80160352d783567caa = $(`<div id="html_bc62f0e51ad8ab80160352d783567caa" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Recess Fit Club</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Boutique Fitness<br>         <b>Address:</b> 653 Bloor St W, Toronto, ON M6G 1L1, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 2.76 km     </div>     </div>`)[0];
+                popup_26940bae97d4c3cc621a9a49fc957368.setContent(html_bc62f0e51ad8ab80160352d783567caa);
+            
+        
+
+        marker_5c86a97080f9ba92fc5b309cd15527e1.bindPopup(popup_26940bae97d4c3cc621a9a49fc957368)
+        ;
+
+        
+    
+    
+            marker_5c86a97080f9ba92fc5b309cd15527e1.bindTooltip(
+                `<div>
+                     Recess Fit Club
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5c86a97080f9ba92fc5b309cd15527e1.setIcon(icon_30e7f21091f7d7efce703e7918dcf214);
+            
+    
+            var marker_83048247d6b185bd077a73838920cf4f = L.marker(
+                [43.6452451, -79.3903639],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_c0f7d58f1ed7b7714f5971468a3b51c6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f8da14a2fc49f465960654b5794c3ffc = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_8a920e9befd991b2ec70e9ecc19b8abc = $(`<div id="html_8a920e9befd991b2ec70e9ecc19b8abc" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Your House Fitness</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Boutique Fitness<br>         <b>Address:</b> 250 Wellington St W Unit 129, Toronto, ON M5V 3P6, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 2.92 km     </div>     </div>`)[0];
+                popup_f8da14a2fc49f465960654b5794c3ffc.setContent(html_8a920e9befd991b2ec70e9ecc19b8abc);
+            
+        
+
+        marker_83048247d6b185bd077a73838920cf4f.bindPopup(popup_f8da14a2fc49f465960654b5794c3ffc)
+        ;
+
+        
+    
+    
+            marker_83048247d6b185bd077a73838920cf4f.bindTooltip(
+                `<div>
+                     Your House Fitness
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_83048247d6b185bd077a73838920cf4f.setIcon(icon_c0f7d58f1ed7b7714f5971468a3b51c6);
+            
+    
+            var marker_4e05e681202b282f27ec385101476148 = L.marker(
+                [43.6478378, -79.3928943],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_dfb593a7aa0480f46afc908a8e607966 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2910bd616e188320facc874da4492e80 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_f665e57cd08cce8adfee2147af514a59 = $(`<div id="html_f665e57cd08cce8adfee2147af514a59" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Fit Squad Training Gym</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Boutique Fitness<br>         <b>Address:</b> 111 Peter St Unit 102, Toronto, ON M5V 2H1, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 2.7 km     </div>     </div>`)[0];
+                popup_2910bd616e188320facc874da4492e80.setContent(html_f665e57cd08cce8adfee2147af514a59);
+            
+        
+
+        marker_4e05e681202b282f27ec385101476148.bindPopup(popup_2910bd616e188320facc874da4492e80)
+        ;
+
+        
+    
+    
+            marker_4e05e681202b282f27ec385101476148.bindTooltip(
+                `<div>
+                     Fit Squad Training Gym
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4e05e681202b282f27ec385101476148.setIcon(icon_dfb593a7aa0480f46afc908a8e607966);
+            
+    
+            var marker_ab01a8dbdd24425f57a8169f2c12f5a1 = L.marker(
+                [43.6654161, -79.3870744],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_b307b4a5383559893c3be9763a45d8f8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b09edf36e6d1fb7929c3935b517734ac = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_cb1ff3fc7e4ed6aff7adecd2841daa99 = $(`<div id="html_cb1ff3fc7e4ed6aff7adecd2841daa99" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Get Fit with Gaya</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Boutique Fitness<br>         <b>Address:</b> 1001 Bay St. #320, Toronto, ON M5S 3A6, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.71 km     </div>     </div>`)[0];
+                popup_b09edf36e6d1fb7929c3935b517734ac.setContent(html_cb1ff3fc7e4ed6aff7adecd2841daa99);
+            
+        
+
+        marker_ab01a8dbdd24425f57a8169f2c12f5a1.bindPopup(popup_b09edf36e6d1fb7929c3935b517734ac)
+        ;
+
+        
+    
+    
+            marker_ab01a8dbdd24425f57a8169f2c12f5a1.bindTooltip(
+                `<div>
+                     Get Fit with Gaya
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ab01a8dbdd24425f57a8169f2c12f5a1.setIcon(icon_b307b4a5383559893c3be9763a45d8f8);
+            
+    
+            var marker_a2fbaae26a9cf7e33e3a384a868e4a40 = L.marker(
+                [43.66479, -79.36846],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_b2873ba7e8230d1d38c18439613ac74d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_36575ecbf6a376763fee615636fa9526 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_4a5fd56f70c87ce32599c0d3aefbab5b = $(`<div id="html_4a5fd56f70c87ce32599c0d3aefbab5b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Parliament Street Fitness</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Boutique Fitness<br>         <b>Address:</b> 488 Parliament St, Toronto, ON M4X 1P2, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 1.32 km     </div>     </div>`)[0];
+                popup_36575ecbf6a376763fee615636fa9526.setContent(html_4a5fd56f70c87ce32599c0d3aefbab5b);
+            
+        
+
+        marker_a2fbaae26a9cf7e33e3a384a868e4a40.bindPopup(popup_36575ecbf6a376763fee615636fa9526)
+        ;
+
+        
+    
+    
+            marker_a2fbaae26a9cf7e33e3a384a868e4a40.bindTooltip(
+                `<div>
+                     Parliament Street Fitness
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a2fbaae26a9cf7e33e3a384a868e4a40.setIcon(icon_b2873ba7e8230d1d38c18439613ac74d);
+            
+    
+            var marker_8f7573f5ed0be5152aa6515899b81d08 = L.marker(
+                [43.70423, -79.41126],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_54d960e473859518569aa6ff15ce3d55 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c83046b12cd304cb6f0d3d593d570222 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_f07a0f7ead8c8a9fb3c31ce3cb45733d = $(`<div id="html_f07a0f7ead8c8a9fb3c31ce3cb45733d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Fitness Social Studio</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Boutique Fitness<br>         <b>Address:</b> 426 Eglinton Ave W, Toronto, ON M5N 1A2, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 4.37 km     </div>     </div>`)[0];
+                popup_c83046b12cd304cb6f0d3d593d570222.setContent(html_f07a0f7ead8c8a9fb3c31ce3cb45733d);
+            
+        
+
+        marker_8f7573f5ed0be5152aa6515899b81d08.bindPopup(popup_c83046b12cd304cb6f0d3d593d570222)
+        ;
+
+        
+    
+    
+            marker_8f7573f5ed0be5152aa6515899b81d08.bindTooltip(
+                `<div>
+                     Fitness Social Studio
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8f7573f5ed0be5152aa6515899b81d08.setIcon(icon_54d960e473859518569aa6ff15ce3d55);
+            
+    
+            var marker_1b2a43daf4e716b28607be51657a0ae5 = L.marker(
+                [43.6636031, -79.3842132],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_e3c7cfec67691167bb13f28979c08594 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5b74831b67fe2c846db58524060e2ee6 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_d51f18019d0e182826c7a4dc603ced86 = $(`<div id="html_d51f18019d0e182826c7a4dc603ced86" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>Thrive Longevity Training</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Boutique Fitness / Longevity<br>         <b>Address:</b> 518 Yonge St, Toronto, ON M4Y 1X9, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 0.82 km     </div>     </div>`)[0];
+                popup_5b74831b67fe2c846db58524060e2ee6.setContent(html_d51f18019d0e182826c7a4dc603ced86);
+            
+        
+
+        marker_1b2a43daf4e716b28607be51657a0ae5.bindPopup(popup_5b74831b67fe2c846db58524060e2ee6)
+        ;
+
+        
+    
+    
+            marker_1b2a43daf4e716b28607be51657a0ae5.bindTooltip(
+                `<div>
+                     Thrive Longevity Training
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1b2a43daf4e716b28607be51657a0ae5.setIcon(icon_e3c7cfec67691167bb13f28979c08594);
+            
+    
+            var marker_ceccf818f09b1a14db9ee896b5187f7a = L.marker(
+                [43.67417, -79.39817],
+                {
+}
+            ).addTo(feature_group_e0bdf5410c1c20a97e272e4582ccbf6a);
+        
+    
+            var icon_9bcf92a32486aac8562496ab786fdf34 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "heartbeat",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_381e59f8137208a69a471391107deb2b = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_9bde612e16c228d37391e7fef0af73fc = $(`<div id="html_9bde612e16c228d37391e7fef0af73fc" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <b>KX Yorkville</b><br>         <b>Category:</b> Fitness<br>         <b>Subcategory:</b> Boutique Fitness<br>         <b>Address:</b> 263 Davenport Rd, Toronto, ON M5R 1J9, Canada<br>         <b>Rating:</b> N/A<br>         <b>Distance from 175 Bloor St E:</b> 1.32 km     </div>     </div>`)[0];
+                popup_381e59f8137208a69a471391107deb2b.setContent(html_9bde612e16c228d37391e7fef0af73fc);
+            
+        
+
+        marker_ceccf818f09b1a14db9ee896b5187f7a.bindPopup(popup_381e59f8137208a69a471391107deb2b)
+        ;
+
+        
+    
+    
+            marker_ceccf818f09b1a14db9ee896b5187f7a.bindTooltip(
+                `<div>
+                     KX Yorkville
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ceccf818f09b1a14db9ee896b5187f7a.setIcon(icon_9bcf92a32486aac8562496ab786fdf34);
+            
+    
+            feature_group_e0bdf5410c1c20a97e272e4582ccbf6a.addTo(map_4e7a56d69af5055e556e21c4e52da4d5);
+        
+    
+            var layer_control_c5c812705e06a421516a4e78538cdd1f_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_98e689f1a473b6940b70343ac9cd630c,
+                },
+                overlays :  {
+                    "Proposed Location" : feature_group_266602123c27b1392172664cd0dee14c,
+                    "Juice \u0026 Superfood / Healthy Food" : feature_group_f205d1a01d3158b11f486cf8dc23cdb3,
+                    "Fitness / Gyms / Pilates" : feature_group_e0bdf5410c1c20a97e272e4582ccbf6a,
+                },
+            };
+            let layer_control_c5c812705e06a421516a4e78538cdd1f = L.control.layers(
+                layer_control_c5c812705e06a421516a4e78538cdd1f_layers.base_layers,
+                layer_control_c5c812705e06a421516a4e78538cdd1f_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_4e7a56d69af5055e556e21c4e52da4d5);
+
+        
+</script>
+</html>
